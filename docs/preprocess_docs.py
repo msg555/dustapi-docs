@@ -141,7 +141,7 @@ def format_type_identifier(type_id, name_override=None):
 
 def format_arg(arg, type_name_override=None):
     const = "const " if arg.const else ""
-    ref_type = "" #arg.ref_type + " " if arg.ref_type else ""
+    ref_type = arg.ref_type + " " if arg.ref_type else ""
     return f"{const}{format_type_identifier(arg.arg_type, name_override=type_name_override)} {ref_type}{arg.arg_name}"
 
 
@@ -233,6 +233,7 @@ def emit_class_members(out, indent, classdef, class_name):
         if part.class_func:
             emit_funcdef(out, indent, part.class_func, class_name, last_comment, name_ctr)
             last_comment = None
+
 
 def main():
     text = sys.stdin.read()

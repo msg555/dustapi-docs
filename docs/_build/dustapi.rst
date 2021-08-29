@@ -1057,7 +1057,7 @@ class scene
 
   .. _method-scene-get_filth_level:
 
-  \ **void**\  *get_filth_level*\ (\ **int**\  filth, \ **int**\  filth_block, \ **int**\  enemy)
+  \ **void**\  *get_filth_level*\ (\ **int**\  &out filth, \ **int**\  &out filth_block, \ **int**\  &out enemy)
 
     Writes the total initial amount of filth, dustblocks, and enemy life
     in the level to the passed variables.
@@ -1065,7 +1065,7 @@ class scene
 
   .. _method-scene-get_filth_remaining:
 
-  \ **void**\  *get_filth_remaining*\ (\ **int**\  filth, \ **int**\  filth_block, \ **int**\  enemy)
+  \ **void**\  *get_filth_remaining*\ (\ **int**\  &out filth, \ **int**\  &out filth_block, \ **int**\  &out enemy)
 
     Writes the current amount of filth, dustblocks, and enemy life
     in the level to the passed variables.
@@ -1505,7 +1505,7 @@ class camera
 
   .. _method-camera-get_layer_draw_rect:
 
-  \ **void**\  *get_layer_draw_rect*\ (\ **float**\  sub_frame, \ **int**\  layer, \ **float**\  left, \ **float**\  top, \ **float**\  width, \ **float**\  height)
+  \ **void**\  *get_layer_draw_rect*\ (\ **float**\  sub_frame, \ **int**\  layer, \ **float**\  &out left, \ **float**\  &out top, \ **float**\  &out width, \ **float**\  &out height)
 
     Get the size of the world layer in the current frame at a given
     sub_frame position. This accounts for camera animations and should
@@ -3744,7 +3744,7 @@ class canvas
 
   .. _method-canvas-transform_point:
 
-  \ **void**\  *transform_point*\ (\ **float**\  x, \ **float**\  y, \ **float**\  tx, \ **float**\  ty)
+  \ **void**\  *transform_point*\ (\ **float**\  x, \ **float**\  y, \ **float**\  &out tx, \ **float**\  &out ty)
 
     Compute the x/y coordinates of the underlying canvas transform. 
 
@@ -4398,7 +4398,7 @@ class nexus_api
 ###############
   .. _method-nexus_api-get_keys_used:
 
-  \ **void**\  *get_keys_used*\ (\ **int**\  wood, \ **int**\  silver, \ **int**\  gold, \ **int**\  red, \ **bool**\  ngplus)
+  \ **void**\  *get_keys_used*\ (\ **int**\  &out wood, \ **int**\  &out silver, \ **int**\  &out gold, \ **int**\  &out red, \ **bool**\  &out ngplus)
 
     Get the number of keys that have been used of each time. This reflects
     directly what is persisted to disk. ngplus controls whether all doors
@@ -4413,7 +4413,7 @@ class nexus_api
 
   .. _method-nexus_api-get_keys_earned:
 
-  \ **void**\  *get_keys_earned*\ (\ **int**\  wood, \ **int**\  silver, \ **int**\  gold, \ **int**\  red)
+  \ **void**\  *get_keys_earned*\ (\ **int**\  &out wood, \ **int**\  &out silver, \ **int**\  &out gold, \ **int**\  &out red)
 
     Convenience function to calculate number of keys that have been earned
     of each type. Subtract out the used key counts to get the number of
@@ -4433,7 +4433,7 @@ class nexus_api
 
   .. _method-nexus_api-score_lookup:
 
-  \ **bool**\  *score_lookup*\ (\ **string**\  level, \ **int**\  thorough, \ **int**\  finesse, \ **float**\  time, \ **int**\  key_type)
+  \ **bool**\  *score_lookup*\ (\ **string**\  level, \ **int**\  &out thorough, \ **int**\  &out finesse, \ **float**\  &out time, \ **int**\  &out key_type)
 
     Lookup the score data for a given level 
 
