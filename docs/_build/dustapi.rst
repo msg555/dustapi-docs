@@ -883,7 +883,7 @@ class scene
 
   .. _method-scene-play_persistent_stream:
 
-  \ **audio**\ @ *play_persistent_stream*\ (\ **string**\  name, \ **uint**\  sound_group, \ **bool**\  loop, \ **float**\  volume, const \ **bool**\  script_sound)
+  \ **audio**\ @ *play_persistent_stream*\ (\ **string**\  name, \ **uint**\  sound_group, \ **bool**\  loop, \ **float**\  volume, \ **bool**\  script_sound)
 
     Play a sound that will continue to play after a reset, similar to in game music.
     If the specified audio is already playing nothing will happen.
