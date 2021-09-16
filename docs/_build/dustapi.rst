@@ -1,49 +1,49 @@
-.. _method-puts:
+.. _func-puts:
 
 \ **void**\  *puts*\ (const \ **string**\  &in msg)
 
   Write a string to the console on its own line. 
 
-.. _method-tputs:
+.. _func-tputs:
 
 \ **void**\  *tputs*\ (const \ **string**\  &in msg)
 
   Write a string to the console on its own line with an additional
   timestamp heading. 
 
-.. _method-script_name:
+.. _func-script_name:
 
 \ **string**\  *script_name*\ ()
 
   Returns the name of this script. Script names are used as a way of
   identifiying scripts for use when working with script triggers/enemies. 
 
-.. _method-is_playing:
+.. _func-is_playing:
 
 \ **bool**\  *is_playing*\ ()
 
   Returns false in the editor and true in game 
 
-.. _method-is_replay:
+.. _func-is_replay:
 
 \ **bool**\  *is_replay*\ ()
 
   Returns true if a replay is being watched 
 
-.. _method-editor_sync_vars_menu:
+.. _func-editor_sync_vars_menu:
 
 \ **void**\  *editor_sync_vars_menu*\ ()
 
   Use after changing persistent variables via script to update values in the script panel. 
 
-.. _method-get_scene:
+.. _func-get_scene:
 
-\ **scene**\ @ *get_scene*\ ()
+\ :ref:`scene<class-scene>`\ @ *get_scene*\ ()
 
   Return the current scene object.  This scene object will be valid for
   the entire execution of the script. 
 
-.. _method-get_script:
+.. _func-get_script:
 
 \ **script_base**\ @ *get_script*\ ()
 
@@ -51,9 +51,9 @@
   reasons the script must implement the "script_base" interface, otherwise
   this api will return null. 
 
-.. _method-get_camera:
+.. _func-get_camera:
 
-\ **camera**\ @ *get_camera*\ (\ **uint**\  player)
+\ :ref:`camera<class-camera>`\ @ *get_camera*\ (\ **uint**\  player)
 
   Return the camera following player 'player'. Like the scene object this
   object never needs to be reloaded.
@@ -62,53 +62,53 @@
     :player: The (0-indexed) player index to get the camera of.
   
 
-.. _method-num_cameras:
+.. _func-num_cameras:
 
 \ **uint**\  *num_cameras*\ ()
 
   Returns the number of cameras/players currently active. 
 
-.. _method-get_active_camera:
+.. _func-get_active_camera:
 
-\ **camera**\ @ *get_active_camera*\ ()
+\ :ref:`camera<class-camera>`\ @ *get_active_camera*\ ()
 
   Get the camera that is currently being viewed. 
 
-.. _method-get_active_player:
+.. _func-get_active_player:
 
 \ **int**\  *get_active_player*\ ()
 
   Get the player index that is currently being viewed. Shorthand for
   get_active_camera.player(). 
 
-.. _method-controller_entity:
+.. _func-controller_entity:
 
-\ **entity**\ @ *controller_entity*\ (\ **uint**\  player)
+\ :ref:`entity<class-entity>`\ @ *controller_entity*\ (\ **uint**\  player)
 
   This is deprecated, use controller_controllable which returns the same
   result except cast as a controllable. 
 
-.. _method-controller_controllable:
+.. _func-controller_controllable:
 
-\ **controllable**\ @ *controller_controllable*\ (\ **uint**\  player)
+\ :ref:`controllable<class-controllable>`\ @ *controller_controllable*\ (\ **uint**\  player)
 
   Return the entity being controlled by player 'player'. This object
   is no longer valid and should be requeried when a checkpoint is loaded.
   
 
-.. _method-controller_entity-2:
+.. _func-controller_entity-2:
 
-\ **void**\  *controller_entity*\ (\ **uint**\  player, \ **controllable**\ @ pl)
+\ **void**\  *controller_entity*\ (\ **uint**\  player, \ :ref:`controllable<class-controllable>`\ @ pl)
 
   Change the controllable controlled by player 'player'. 
 
-.. _method-reset_camera:
+.. _func-reset_camera:
 
 \ **void**\  *reset_camera*\ (\ **uint**\  player)
 
   Reset all camera state based on the player's current position. 
 
-.. _method-player_name:
+.. _func-player_name:
 
 \ **string**\  *player_name*\ (\ **int**\  player)
 
@@ -116,9 +116,9 @@
   if not in networking mode or the player name is not known. Returns an empty
   string if the player does not exist. 
 
-.. _method-entity_by_id:
+.. _func-entity_by_id:
 
-\ **entity**\ @ *entity_by_id*\ (\ **uint**\  id)
+\ :ref:`entity<class-entity>`\ @ *entity_by_id*\ (\ **uint**\  id)
 
   Return the entity with the given id. The returned entity object is no
   longer valid if the entity is removed from the scene either by being
@@ -128,145 +128,145 @@
   This function will return null if the entity has been destroyed or is not
   currently loaded. 
 
-.. _method-controllable_by_id:
+.. _func-controllable_by_id:
 
-\ **controllable**\ @ *controllable_by_id*\ (\ **uint**\  id)
+\ :ref:`controllable<class-controllable>`\ @ *controllable_by_id*\ (\ **uint**\  id)
 
   Convenience method for entity_by_id that tries to return a controllable. 
 
-.. _method-dustman_by_id:
+.. _func-dustman_by_id:
 
-\ **dustman**\ @ *dustman_by_id*\ (\ **uint**\  id)
+\ :ref:`dustman<class-dustman>`\ @ *dustman_by_id*\ (\ **uint**\  id)
 
   Convenience method for entity_by_id that tries to return a dustman. 
 
-.. _method-hitbox_by_id:
+.. _func-hitbox_by_id:
 
-\ **hitbox**\ @ *hitbox_by_id*\ (\ **uint**\  id)
+\ :ref:`hitbox<class-hitbox>`\ @ *hitbox_by_id*\ (\ **uint**\  id)
 
   Convenience method for entity_by_id that tries to return a hitbox. 
 
-.. _method-scripttrigger_by_id:
+.. _func-scripttrigger_by_id:
 
-\ **scripttrigger**\ @ *scripttrigger_by_id*\ (\ **uint**\  id)
+\ :ref:`scripttrigger<class-scripttrigger>`\ @ *scripttrigger_by_id*\ (\ **uint**\  id)
 
   Convenience method for entity_by_id that tries to return a script
   trigger. 
 
-.. _method-scriptenemy_by_id:
+.. _func-scriptenemy_by_id:
 
-\ **scriptenemy**\ @ *scriptenemy_by_id*\ (\ **uint**\  id)
+\ :ref:`scriptenemy<class-scriptenemy>`\ @ *scriptenemy_by_id*\ (\ **uint**\  id)
 
   Convenience method for entity_by_id that tries to return a script
   enemy. 
 
-.. _method-prop_by_id:
+.. _func-prop_by_id:
 
-\ **prop**\ @ *prop_by_id*\ (\ **uint**\  id)
+\ :ref:`prop<class-prop>`\ @ *prop_by_id*\ (\ **uint**\  id)
 
-.. _method-entity_by_index:
+.. _func-entity_by_index:
 
-\ **entity**\ @ *entity_by_index*\ (\ **uint**\  index)
+\ :ref:`entity<class-entity>`\ @ *entity_by_index*\ (\ **uint**\  index)
 
   Return the 'index'th entity that will be steped this frame. Should only
   be called from 'step' and 'step_post'. See * entity_by_id() for notes on
   liveness of this object. 
 
-.. _method-srand:
+.. _func-srand:
 
 \ **void**\  *srand*\ (\ **uint32**\  sd)
 
   Seed the random generator. 
 
-.. _method-rand:
+.. _func-rand:
 
 \ **uint32**\  *rand*\ ()
 
   Generate a random 30-bit number. 
 
-.. _method-create_tileinfo:
+.. _func-create_tileinfo:
 
-\ **tileinfo**\ @ *create_tileinfo*\ ()
+\ :ref:`tileinfo<class-tileinfo>`\ @ *create_tileinfo*\ ()
 
   Create an tileinfo structure. Defaults to a square virtual tile. 
 
-.. _method-create_tilefilth:
+.. _func-create_tilefilth:
 
-\ **tilefilth**\ @ *create_tilefilth*\ ()
+\ :ref:`tilefilth<class-tilefilth>`\ @ *create_tilefilth*\ ()
 
   Create a tilefilth structure. Defaults to no filth on any edge. 
 
-.. _method-create_sprites:
+.. _func-create_sprites:
 
-\ **sprites**\ @ *create_sprites*\ ()
+\ :ref:`sprites<class-sprites>`\ @ *create_sprites*\ ()
 
   Create a sprites object that can be used to draw sprites to the screen. 
 
-.. _method-create_prop:
+.. _func-create_prop:
 
-\ **prop**\ @ *create_prop*\ ()
+\ :ref:`prop<class-prop>`\ @ *create_prop*\ ()
 
   Create a prop. 
 
-.. _method-create_entity:
+.. _func-create_entity:
 
-\ **entity**\ @ *create_entity*\ (\ **string**\  type_name)
+\ :ref:`entity<class-entity>`\ @ *create_entity*\ (\ **string**\  type_name)
 
   Create an entity object of the given type.  See
   https://gist.github.com/msg555/dcdc9d0644a813259072fe7b1cbdac30 for a
   list of types that can be created. 
 
-.. _method-create_textfield:
+.. _func-create_textfield:
 
-\ **textfield**\ @ *create_textfield*\ ()
+\ :ref:`textfield<class-textfield>`\ @ *create_textfield*\ ()
 
   Create a new textfield that can be used to draw text to the screen. 
 
-.. _method-create_scripttrigger:
+.. _func-create_scripttrigger:
 
-\ **scripttrigger**\ @ *create_scripttrigger*\ (\ **trigger_base**\ @ obj)
+\ :ref:`scripttrigger<class-scripttrigger>`\ @ *create_scripttrigger*\ (\ **trigger_base**\ @ obj)
 
   Create a new script trigger backed by the passed trigger_base object. 
 
-.. _method-create_scriptenemy:
+.. _func-create_scriptenemy:
 
-\ **scriptenemy**\ @ *create_scriptenemy*\ (\ **enemy_base**\ @ obj)
+\ :ref:`scriptenemy<class-scriptenemy>`\ @ *create_scriptenemy*\ (\ **enemy_base**\ @ obj)
 
   Create a new script enemy backed by the passed enemy_base object. 
 
-.. _method-create_message:
+.. _func-create_message:
 
-\ **message**\ @ *create_message*\ ()
+\ :ref:`message<class-message>`\ @ *create_message*\ ()
 
   Create an empty message object. 
 
-.. _method-create_hitbox:
+.. _func-create_hitbox:
 
-\ **hitbox**\ @ *create_hitbox*\ (\ **controllable**\ @ owner, \ **float**\  activate_time, \ **float**\  x, \ **float**\  y, \ **float**\  top, \ **float**\  bottom, \ **float**\  left, \ **float**\  right)
+\ :ref:`hitbox<class-hitbox>`\ @ *create_hitbox*\ (\ :ref:`controllable<class-controllable>`\ @ owner, \ **float**\  activate_time, \ **float**\  x, \ **float**\  y, \ **float**\  top, \ **float**\  bottom, \ **float**\  left, \ **float**\  right)
 
   Create a hitbox object. Note that the entity is not automatically added
   to the scene. However, hitboxes do automatically remove themselves from the
   scene sometime after activated. Hitboxes cannot be persisted and should be
   added to the scene with persist set to false. 
 
-.. _method-create_canvas:
+.. _func-create_canvas:
 
-\ **canvas**\ @ *create_canvas*\ (\ **bool**\  is_hud, \ **int**\  layer, \ **int**\  sub_layer)
+\ :ref:`canvas<class-canvas>`\ @ *create_canvas*\ (\ **bool**\  is_hud, \ **int**\  layer, \ **int**\  sub_layer)
 
-.. _method-add_broadcast_receiver:
+.. _func-add_broadcast_receiver:
 
 \ **void**\  *add_broadcast_receiver*\ (\ **string**\  id, \ **callback_base**\ @ obj, \ **string**\  methName)
 
   Add a callback to receive all broadcasted messages with the given id. If id
   is blank then this receiver will instead receive all messages. 
 
-.. _method-broadcast_message:
+.. _func-broadcast_message:
 
-\ **void**\  *broadcast_message*\ (\ **string**\  id, \ **message**\ @ msg)
+\ **void**\  *broadcast_message*\ (\ **string**\  id, \ :ref:`message<class-message>`\ @ msg)
 
   Send a message to all registered broadcast receivers. 
 
-.. _method-has_embed_value:
+.. _func-has_embed_value:
 
 \ **bool**\  *has_embed_value*\ (\ **string**\  key)
 
@@ -280,14 +280,14 @@
   get_embed_value, and can be used as sprite data in build_sprites.
   
 
-.. _method-get_embed_value:
+.. _func-get_embed_value:
 
 \ **string**\  *get_embed_value*\ (\ **string**\  key)
 
   Returns the embedded file data associated with the passed key. See
   has_embed_value for more details on how to embed a value in a script. 
 
-.. _method-load_embed:
+.. _func-load_embed:
 
 \ **bool**\  *load_embed*\ (\ **string**\  key, \ **string**\  path)
 
@@ -300,59 +300,63 @@
   key is unmodified.
   
 
-.. _method-timestamp_now:
+.. _func-timestamp_now:
 
 \ **int**\  *timestamp_now*\ ()
 
   Return the current unix timestamp. 
 
-.. _method-get_time_us:
+.. _func-get_time_us:
 
 \ **uint32**\  *get_time_us*\ ()
 
   Get the current microseconds. 
 
-.. _method-localtime:
+.. _func-localtime:
 
-\ **timedate**\ @ *localtime*\ (\ **int**\  timestamp)
+\ :ref:`timedate<class-timedate>`\ @ *localtime*\ (\ **int**\  timestamp)
 
   Convert a timestamp to a timedate structure in the local timezone. 
 
-.. _method-localtime-2:
+.. _func-localtime-2:
 
-\ **timedate**\ @ *localtime*\ ()
+\ :ref:`timedate<class-timedate>`\ @ *localtime*\ ()
 
   Convert the current time to a timedate structure in the local timezone. 
 
-.. _method-gmtime:
+.. _func-gmtime:
 
-\ **timedate**\ @ *gmtime*\ (\ **int**\  timestamp)
+\ :ref:`timedate<class-timedate>`\ @ *gmtime*\ (\ **int**\  timestamp)
 
   Convert a timestamp to a timedate structure in the UTC timezone. 
 
-.. _method-gmtime-2:
+.. _func-gmtime-2:
 
-\ **timedate**\ @ *gmtime*\ ()
+\ :ref:`timedate<class-timedate>`\ @ *gmtime*\ ()
 
   Convert the current time to a timedate structure in the UTC timezone. 
 
-.. _method-get_editor_api:
+.. _func-get_editor_api:
 
-\ **editor_api**\ @ *get_editor_api*\ ()
+\ :ref:`editor_api<class-editor_api>`\ @ *get_editor_api*\ ()
 
   Get editor api object if currently in editor mode. 
 
-.. _method-get_input_api:
+.. _func-get_input_api:
 
-\ **input_api**\ @ *get_input_api*\ ()
+\ :ref:`input_api<class-input_api>`\ @ *get_input_api*\ ()
 
   Get input api object if currently in editor mode. 
 
-.. _method-get_nexus_api:
+.. _func-get_nexus_api:
 
-\ **nexus_api**\ @ *get_nexus_api*\ ()
+\ :ref:`nexus_api<class-nexus_api>`\ @ *get_nexus_api*\ ()
 
-  Get nexus api object if currently in nexus. 
+  Returns a \ :ref:`nexus_api<class-nexus_api>`\  object if called from within a nexus.
+  Otherwise returns null.
+  
+
+.. _class-scene:
 
 class scene
 ###########
@@ -410,14 +414,14 @@ class scene
 
   .. _method-scene-get_tile:
 
-  \ **tileinfo**\ @ *get_tile*\ (\ **int**\  x, \ **int**\  y)
+  \ :ref:`tileinfo<class-tileinfo>`\ @ *get_tile*\ (\ **int**\  x, \ **int**\  y)
 
     Get the tileinfo structure for the tile at the given position on
     layer 19. 
 
   .. _method-scene-get_tile-2:
 
-  \ **tileinfo**\ @ *get_tile*\ (\ **int**\  x, \ **int**\  y, \ **int**\  layer)
+  \ :ref:`tileinfo<class-tileinfo>`\ @ *get_tile*\ (\ **int**\  x, \ **int**\  y, \ **int**\  layer)
 
     Get the tileinfo structure for the tile at the given position and layer. 
 
@@ -431,13 +435,13 @@ class scene
 
   .. _method-scene-set_tile-2:
 
-  \ **void**\  *set_tile*\ (\ **int**\  x, \ **int**\  y, \ **int**\  layer, \ **tileinfo**\ @ tile, \ **bool**\  updateEdges)
+  \ **void**\  *set_tile*\ (\ **int**\  x, \ **int**\  y, \ **int**\  layer, \ :ref:`tileinfo<class-tileinfo>`\ @ tile, \ **bool**\  updateEdges)
 
     Overwrite a tile in the scene using the passed tileinfo structure. 
 
   .. _method-scene-get_tile_filth:
 
-  \ **tilefilth**\ @ *get_tile_filth*\ (\ **int**\  x, \ **int**\  y)
+  \ :ref:`tilefilth<class-tilefilth>`\ @ *get_tile_filth*\ (\ **int**\  x, \ **int**\  y)
 
     Get the tilefilth structure for the tile at the given location.
     Filth includes all things that can be on a side of a tile,
@@ -452,7 +456,7 @@ class scene
 
   .. _method-scene-set_tile_filth-2:
 
-  \ **uint**\  *set_tile_filth*\ (\ **int**\  x, \ **int**\  y, \ **tilefilth**\ @ filth)
+  \ **uint**\  *set_tile_filth*\ (\ **int**\  x, \ **int**\  y, \ :ref:`tilefilth<class-tilefilth>`\ @ filth)
 
     Set the filth for a given tile position using a tilefilth object. 
 
@@ -491,14 +495,14 @@ class scene
 
   .. _method-scene-ray_cast_tiles:
 
-  \ **raycast**\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
 
     Return information about the first tile surface hit from the ray starting
     at (x1, y1) going to (x2, y2). 
 
   .. _method-scene-ray_cast_tiles-2:
 
-  \ **raycast**\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **raycast**\ @ result)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ :ref:`raycast<class-raycast>`\ @ result)
 
     Like the other ray_cast_tiles call except reuse the raycast object result.
     This avoids unnecessary allocations if you're making a lot of calls per
@@ -506,19 +510,19 @@ class scene
 
   .. _method-scene-raycast_ray_cast_tiles_ex:
 
-  \ **raycast**\ @ *raycast_ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
+  \ :ref:`raycast<class-raycast>`\ @ *raycast_ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
 
     Like the other ray_cast_tiles except provide a layer. 
 
   .. _method-scene-ray_cast_tiles_ex:
 
-  \ **raycast**\ @ *ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer, \ **raycast**\ @ result)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer, \ :ref:`raycast<class-raycast>`\ @ result)
 
     Like the other ray_cast_tiles except provide a layer. 
 
   .. _method-scene-ray_cast_tiles-3:
 
-  \ **raycast**\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges)
 
     Return information about the first tile surface hit from the ray starting
     at (x1, y1) going to (x2, y2). 'edges' is a bitset indicating which types
@@ -531,7 +535,7 @@ class scene
 
   .. _method-scene-ray_cast_tiles-4:
 
-  \ **raycast**\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges, \ **raycast**\ @ result)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges, \ :ref:`raycast<class-raycast>`\ @ result)
 
     Like the other ray_cast_tiles call except reuse the raycast object result.
     This avoids unnecessary allocations if you're making a lot of calls per
@@ -539,65 +543,65 @@ class scene
 
   .. _method-scene-ray_cast_tiles_ex-2:
 
-  \ **raycast**\ @ *ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges, \ **uint**\  layer)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges, \ **uint**\  layer)
 
     Like the other ray_cast_tiles except provide a layer. 
 
   .. _method-scene-ray_cast_tiles_ex-3:
 
-  \ **raycast**\ @ *ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges, \ **uint**\  layer, \ **raycast**\ @ result)
+  \ :ref:`raycast<class-raycast>`\ @ *ray_cast_tiles_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **int**\  edges, \ **uint**\  layer, \ :ref:`raycast<class-raycast>`\ @ result)
 
     Like the other ray_cast_tiles except provide a layer. 
 
   .. _method-scene-collision_ground:
 
-  \ **tilecollision**\ @ *collision_ground*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_ground*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
 
     Find the collision of the horizontal line segment (x1, y1), (x2, y1) with
     tiles as it moves downward to y2. Only collides with ground edges. 
 
   .. _method-scene-collision_roof:
 
-  \ **tilecollision**\ @ *collision_roof*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_roof*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
 
     Find the collision of the horizontal line segment (x1, y1), (x2, y1) with
     tiles as it moves upward to y2. Only collides with roof edges. 
 
   .. _method-scene-collision_left:
 
-  \ **tilecollision**\ @ *collision_left*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_left*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
 
     Find the collision of the vertical line segment (x1, y1), (x1, y2) with
     tiles as it moves leftward to x2. Only collides with left edges. 
 
   .. _method-scene-collision_right:
 
-  \ **tilecollision**\ @ *collision_right*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_right*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2)
 
     Find the collision of the vertical line segment (x1, y1), (x1, y2) with
     tiles as it moves rightward to x2. Only collides with right edges. 
 
   .. _method-scene-collision_ground_ex:
 
-  \ **tilecollision**\ @ *collision_ground_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_ground_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
 
     Like collision_ground except provide a layer. 
 
   .. _method-scene-collision_roof_ex:
 
-  \ **tilecollision**\ @ *collision_roof_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_roof_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
 
     Like collision_roof except provide a layer. 
 
   .. _method-scene-collision_left_ex:
 
-  \ **tilecollision**\ @ *collision_left_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_left_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
 
     Like collision_left except provide a layer. 
 
   .. _method-scene-collision_right_ex:
 
-  \ **tilecollision**\ @ *collision_right_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
+  \ :ref:`tilecollision<class-tilecollision>`\ @ *collision_right_ex*\ (\ **float**\  x1, \ **float**\  y1, \ **float**\  x2, \ **float**\  y2, \ **uint**\  layer)
 
     Like collision_right except provide a layer. 
 
@@ -612,41 +616,41 @@ class scene
 
   .. _method-scene-get_entity_collision_index:
 
-  \ **entity**\ @ *get_entity_collision_index*\ (\ **uint**\  index)
+  \ :ref:`entity<class-entity>`\ @ *get_entity_collision_index*\ (\ **uint**\  index)
 
     Returns the index'th entity from the last `get_..._collision` call. 
 
   .. _method-scene-get_controllable_collision_index:
 
-  \ **controllable**\ @ *get_controllable_collision_index*\ (\ **uint**\  index)
+  \ :ref:`controllable<class-controllable>`\ @ *get_controllable_collision_index*\ (\ **uint**\  index)
 
     Convenience method for get_entitiy_collision_index that tries to return a
     controllable. 
 
   .. _method-scene-get_dustman_collision_index:
 
-  \ **dustman**\ @ *get_dustman_collision_index*\ (\ **uint**\  index)
+  \ :ref:`dustman<class-dustman>`\ @ *get_dustman_collision_index*\ (\ **uint**\  index)
 
     Convenience method for get_entitiy_collision_index that tries to return a
     dustman. 
 
   .. _method-scene-get_hitbox_collision_index:
 
-  \ **hitbox**\ @ *get_hitbox_collision_index*\ (\ **uint**\  index)
+  \ :ref:`hitbox<class-hitbox>`\ @ *get_hitbox_collision_index*\ (\ **uint**\  index)
 
     Convenience method for get_entitiy_collision_index that tries to return a
     hitbox. 
 
   .. _method-scene-get_scripttrigger_collision_index:
 
-  \ **scripttrigger**\ @ *get_scripttrigger_collision_index*\ (\ **uint**\  index)
+  \ :ref:`scripttrigger<class-scripttrigger>`\ @ *get_scripttrigger_collision_index*\ (\ **uint**\  index)
 
     Convenience method for get_entitiy_collision_index that tries to
     return a script trigger. 
 
   .. _method-scene-get_scriptenemy_collision_index:
 
-  \ **scriptenemy**\ @ *get_scriptenemy_collision_index*\ (\ **uint**\  index)
+  \ :ref:`scriptenemy<class-scriptenemy>`\ @ *get_scriptenemy_collision_index*\ (\ **uint**\  index)
 
     Convenience method for get_entitiy_collision_index that tries to
     return a script enemy. 
@@ -661,7 +665,7 @@ class scene
 
   .. _method-scene-get_prop_collision_index:
 
-  \ **prop**\ @ *get_prop_collision_index*\ (\ **uint**\  index)
+  \ :ref:`prop<class-prop>`\ @ *get_prop_collision_index*\ (\ **uint**\  index)
 
     Returns the index'th prop from the last `get_..._collision` call. 
 
@@ -698,32 +702,32 @@ class scene
 
   .. _method-scene-add_prop:
 
-  \ **void**\  *add_prop*\ (\ **prop**\ @ prop)
+  \ **void**\  *add_prop*\ (\ :ref:`prop<class-prop>`\ @ prop)
 
     Add a prop into the scene to be rendered each frame. 
 
   .. _method-scene-remove_prop:
 
-  \ **void**\  *remove_prop*\ (\ **prop**\ @ prop)
+  \ **void**\  *remove_prop*\ (\ :ref:`prop<class-prop>`\ @ prop)
 
     Remove a prop from the scene. 
 
   .. _method-scene-add_entity:
 
-  \ **void**\  *add_entity*\ (\ **entity**\ @ entity)
+  \ **void**\  *add_entity*\ (\ :ref:`entity<class-entity>`\ @ entity)
 
     Add an entity to the scene to be step'ed and drawn. 
 
   .. _method-scene-add_entity-2:
 
-  \ **void**\  *add_entity*\ (\ **entity**\ @ entity, \ **bool**\  persist)
+  \ **void**\  *add_entity*\ (\ :ref:`entity<class-entity>`\ @ entity, \ **bool**\  persist)
 
     Add an entity to the scene to be step'ed and drawn. 'persist' indicates if
     the entity should be saved and loaded using the checkpoint system. 
 
   .. _method-scene-remove_entity:
 
-  \ **void**\  *remove_entity*\ (\ **entity**\ @ entity)
+  \ **void**\  *remove_entity*\ (\ :ref:`entity<class-entity>`\ @ entity)
 
     Remove an entity from the scene. 
 
@@ -861,14 +865,14 @@ class scene
 
   .. _method-scene-play_sound:
 
-  \ **audio**\ @ *play_sound*\ (\ **string**\  name, \ **float**\  x, \ **float**\  y, \ **float**\  volume, \ **bool**\  loop, \ **bool**\  positional)
+  \ :ref:`audio<class-audio>`\ @ *play_sound*\ (\ **string**\  name, \ **float**\  x, \ **float**\  y, \ **float**\  volume, \ **bool**\  loop, \ **bool**\  positional)
 
     See https://gist.github.com/msg555/46f46b8b943ee93393a0a192c7703c57
     for a list of sound and stream names to use. 
 
   .. _method-scene-play_stream:
 
-  \ **audio**\ @ *play_stream*\ (\ **string**\  name, \ **uint**\  soundGroup, \ **float**\  x, \ **float**\  y, \ **bool**\  loop, \ **float**\  volume)
+  \ :ref:`audio<class-audio>`\ @ *play_stream*\ (\ **string**\  name, \ **uint**\  soundGroup, \ **float**\  x, \ **float**\  y, \ **bool**\  loop, \ **float**\  volume)
 
     'soundGroup' determines which global volume slider to apply to this sound.
     1 for music, 2 for ambience, and anything else is considered a sound
@@ -876,14 +880,14 @@ class scene
 
   .. _method-scene-play_script_stream:
 
-  \ **audio**\ @ *play_script_stream*\ (\ **string**\  name, \ **uint**\  soundGroup, \ **float**\  x, \ **float**\  y, \ **bool**\  loop, \ **float**\  volume)
+  \ :ref:`audio<class-audio>`\ @ *play_script_stream*\ (\ **string**\  name, \ **uint**\  soundGroup, \ **float**\  x, \ **float**\  y, \ **bool**\  loop, \ **float**\  volume)
 
     Play a stream that was loaded in using the script.build_sounds() callback.
     
 
   .. _method-scene-play_persistent_stream:
 
-  \ **audio**\ @ *play_persistent_stream*\ (\ **string**\  name, \ **uint**\  sound_group, \ **bool**\  loop, \ **float**\  volume, \ **bool**\  script_sound)
+  \ :ref:`audio<class-audio>`\ @ *play_persistent_stream*\ (\ **string**\  name, \ **uint**\  sound_group, \ **bool**\  loop, \ **float**\  volume, \ **bool**\  script_sound)
 
     Play a sound that will continue to play after a reset, similar to in game music.
     If the specified audio is already playing nothing will happen.
@@ -901,7 +905,7 @@ class scene
 
   .. _method-scene-get_persistent_stream:
 
-  \ **audio**\ @ *get_persistent_stream*\ (\ **string**\  name)
+  \ :ref:`audio<class-audio>`\ @ *get_persistent_stream*\ (\ **string**\  name)
 
     Returns the specified persitent sound if it is playing, or null otherwise. 
 
@@ -945,7 +949,7 @@ class scene
 
   .. _method-scene-add_collision:
 
-  \ **collision**\ @ *add_collision*\ (\ **entity**\ @ e, \ **float**\  top, \ **float**\  bottom, \ **float**\  left, \ **float**\  right, \ **uint32**\  collision_type)
+  \ :ref:`collision<class-collision>`\ @ *add_collision*\ (\ :ref:`entity<class-entity>`\ @ e, \ **float**\  top, \ **float**\  bottom, \ **float**\  left, \ **float**\  right, \ **uint32**\  collision_type)
 
     Insert a new collision object into the scene. 
 
@@ -1053,13 +1057,13 @@ class scene
 
   .. _method-scene-add_effect:
 
-  \ **entity**\ @ *add_effect*\ (\ **string**\  sprite_set, \ **string**\  sprite_name, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  frame_rate)
+  \ :ref:`entity<class-entity>`\ @ *add_effect*\ (\ **string**\  sprite_set, \ **string**\  sprite_name, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  frame_rate)
 
     Create a new effect based off a sprite animation. 
 
   .. _method-scene-add_follow_effect:
 
-  \ **entity**\ @ *add_follow_effect*\ (\ **string**\  sprite_set, \ **string**\  sprite_name, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  frame_rate, \ **entity**\ @ follow, \ **bool**\  follow_x, \ **bool**\  follow_y)
+  \ :ref:`entity<class-entity>`\ @ *add_follow_effect*\ (\ **string**\  sprite_set, \ **string**\  sprite_name, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  frame_rate, \ :ref:`entity<class-entity>`\ @ follow, \ **bool**\  follow_x, \ **bool**\  follow_y)
 
     Create a new effect based off a sprite animation that follows an entity.
     
@@ -1095,6 +1099,8 @@ class scene
   .. _method-scene-time_warp-2:
 
   \ **void**\  *time_warp*\ (\ **float**\  time_warp)
+
+.. _class-rectangle:
 
 class rectangle
 ###############
@@ -1137,6 +1143,8 @@ class rectangle
   .. _method-rectangle-get_height:
 
   \ **float**\  *get_height*\ ()
+
+.. _class-raycast:
 
 class raycast
 #############
@@ -1182,6 +1190,8 @@ class raycast
 
     Returns the angle of hit tile surface. 
 
+.. _class-tilecollision:
+
 class tilecollision
 ###################
   .. _method-tilecollision-reset:
@@ -1223,6 +1233,8 @@ class tilecollision
   .. _method-tilecollision-type-2:
 
   \ **void**\  *type*\ (\ **int**\  type)
+
+.. _class-tileinfo:
 
 class tileinfo
 ##############
@@ -1349,6 +1361,8 @@ class tileinfo
     Set the tile's sprite_tile and sprite_palette parameters to be the
     dustblock tile type in the given sprite set. 
 
+.. _class-tilefilth:
+
 class tilefilth
 ###############
   Describes the filth or spikes on a tile. 
@@ -1393,6 +1407,8 @@ class tilefilth
 
   \ **void**\  *right*\ (\ **uint8**\  _right)
 
+.. _class-camera:
+
 class camera
 ############
   .. _method-camera-camera_type:
@@ -1412,7 +1428,7 @@ class camera
 
   .. _method-camera-puppet:
 
-  \ **entity**\ @ *puppet*\ ()
+  \ :ref:`entity<class-entity>`\ @ *puppet*\ ()
 
     The entity the camera is following. 
 
@@ -1586,17 +1602,19 @@ class camera
 
   .. _method-camera-get_fog:
 
-  \ **fog_setting**\ @ *get_fog*\ ()
+  \ :ref:`fog_setting<class-fog_setting>`\ @ *get_fog*\ ()
 
     Get the current camera fog colours. 
 
   .. _method-camera-change_fog:
 
-  \ **void**\  *change_fog*\ (\ **fog_setting**\ @ fog, \ **float**\  fog_time)
+  \ **void**\  *change_fog*\ (\ :ref:`fog_setting<class-fog_setting>`\ @ fog, \ **float**\  fog_time)
 
     Change the fog colour. fog_time controls how long the transition time
     from the current fog colour to this updated colour should take measured
     in seconds. 
+
+.. _class-collision:
 
 class collision
 ###############
@@ -1618,11 +1636,11 @@ class collision
 
   .. _method-collision-rectangle-2:
 
-  \ **void**\  *rectangle*\ (\ **rectangle**\ @ rect, \ **float**\  x_offset, \ **float**\  y_offset)
+  \ **void**\  *rectangle*\ (\ :ref:`rectangle<class-rectangle>`\ @ rect, \ **float**\  x_offset, \ **float**\  y_offset)
 
   .. _method-collision-rectangle-3:
 
-  \ **rectangle**\ @ *rectangle*\ ()
+  \ :ref:`rectangle<class-rectangle>`\ @ *rectangle*\ ()
 
   .. _method-collision-collision_type:
 
@@ -1644,13 +1662,15 @@ class collision
 
   .. _method-collision-entity:
 
-  \ **void**\  *entity*\ (\ **entity**\ @ e)
+  \ **void**\  *entity*\ (\ :ref:`entity<class-entity>`\ @ e)
 
     Access the entity associated with this collision. 
 
   .. _method-collision-entity-2:
 
-  \ **entity**\ @ *entity*\ ()
+  \ :ref:`entity<class-entity>`\ @ *entity*\ ()
+
+.. _class-audio:
 
 class audio
 ###########
@@ -1690,11 +1710,13 @@ class audio
 
   \ **void**\  *positional*\ (\ **bool**\  positional)
 
+.. _class-entity:
+
 class entity
 ############
   .. _method-entity-is_same:
 
-  \ **bool**\  *is_same*\ (\ **entity**\ @ obj)
+  \ **bool**\  *is_same*\ (\ :ref:`entity<class-entity>`\ @ obj)
 
     Returns true if the underlying entity objects point to the same object.
     This is to help deal with the issue of different entity handles pointing to
@@ -1702,25 +1724,25 @@ class entity
 
   .. _method-entity-is_same-2:
 
-  \ **bool**\  *is_same*\ (\ **controllable**\ @ obj)
+  \ **bool**\  *is_same*\ (\ :ref:`controllable<class-controllable>`\ @ obj)
 
   .. _method-entity-is_same-3:
 
-  \ **bool**\  *is_same*\ (\ **dustman**\ @ obj)
+  \ **bool**\  *is_same*\ (\ :ref:`dustman<class-dustman>`\ @ obj)
 
   .. _method-entity-metadata:
 
-  \ **message**\ @ *metadata*\ ()
+  \ :ref:`message<class-message>`\ @ *metadata*\ ()
 
   .. _method-entity-get_sprites:
 
-  \ **sprites**\ @ *get_sprites*\ ()
+  \ :ref:`sprites<class-sprites>`\ @ *get_sprites*\ ()
 
     Returns the entities' sprite object. 
 
   .. _method-entity-set_sprites:
 
-  \ **void**\  *set_sprites*\ (\ **sprites**\ @ obj)
+  \ **void**\  *set_sprites*\ (\ :ref:`sprites<class-sprites>`\ @ obj)
 
   .. _method-entity-type_name:
 
@@ -1731,11 +1753,11 @@ class entity
 
   .. _method-entity-vars:
 
-  \ **varstruct**\ @ *vars*\ ()
+  \ :ref:`varstruct<class-varstruct>`\ @ *vars*\ ()
 
   .. _method-entity-as_entity:
 
-  \ **entity**\ @ *as_entity*\ ()
+  \ :ref:`entity<class-entity>`\ @ *as_entity*\ ()
 
     Recast this object as an entity. Unfortunately with the way the API types
     are setup a controllable object cannot be casted to an entity using
@@ -1743,35 +1765,35 @@ class entity
 
   .. _method-entity-as_controllable:
 
-  \ **controllable**\ @ *as_controllable*\ ()
+  \ :ref:`controllable<class-controllable>`\ @ *as_controllable*\ ()
 
     Attempt to recast this object as a controllable. Returns null if the
     entity is not a controllable. 
 
   .. _method-entity-as_dustman:
 
-  \ **dustman**\ @ *as_dustman*\ ()
+  \ :ref:`dustman<class-dustman>`\ @ *as_dustman*\ ()
 
     Attempt to recast this object as a dustman object. Returns null if
     the entity is not a dustman object. 
 
   .. _method-entity-as_hitbox:
 
-  \ **hitbox**\ @ *as_hitbox*\ ()
+  \ :ref:`hitbox<class-hitbox>`\ @ *as_hitbox*\ ()
 
     Attempt to recast this object as a hitbox object. Returns null if
     the entity is not a hitbox object. 
 
   .. _method-entity-as_scripttrigger:
 
-  \ **scripttrigger**\ @ *as_scripttrigger*\ ()
+  \ :ref:`scripttrigger<class-scripttrigger>`\ @ *as_scripttrigger*\ ()
 
     Attempt to recast this object as a scripttrigger object. Returns null if
     the entity is not a scripttrigger object. 
 
   .. _method-entity-as_scriptenemy:
 
-  \ **scriptenemy**\ @ *as_scriptenemy*\ ()
+  \ :ref:`scriptenemy<class-scriptenemy>`\ @ *as_scriptenemy*\ ()
 
     Attempt to recast this object as a scriptenemy object. Returns null if
     the entity is not a scriptenemy object. 
@@ -1871,13 +1893,13 @@ class entity
 
   .. _method-entity-base_collision:
 
-  \ **collision**\ @ *base_collision*\ ()
+  \ :ref:`collision<class-collision>`\ @ *base_collision*\ ()
 
     Returns the collision rectangle used to select the entity in the editor. 
 
   .. _method-entity-base_rectangle:
 
-  \ **rectangle**\ @ *base_rectangle*\ ()
+  \ :ref:`rectangle<class-rectangle>`\ @ *base_rectangle*\ ()
 
   .. _method-entity-base_rectangle-2:
 
@@ -1885,14 +1907,16 @@ class entity
 
   .. _method-entity-base_rectangle-3:
 
-  \ **void**\  *base_rectangle*\ (\ **rectangle**\ @ rect)
+  \ **void**\  *base_rectangle*\ (\ :ref:`rectangle<class-rectangle>`\ @ rect)
 
   .. _method-entity-send_message:
 
-  \ **void**\  *send_message*\ (\ **string**\  id, \ **message**\ @ msg)
+  \ **void**\  *send_message*\ (\ **string**\  id, \ :ref:`message<class-message>`\ @ msg)
 
     Send a message to the entity. Currently, scripttrigger and scriptenemy
     entities are the only entities that can do anything with the message. 
+
+.. _class-controllable:
 
 class controllable
 ##################
@@ -1959,13 +1983,13 @@ class controllable
 
   .. _method-controllable-collision_rect:
 
-  \ **rectangle**\ @ *collision_rect*\ ()
+  \ :ref:`rectangle<class-rectangle>`\ @ *collision_rect*\ ()
 
     Returns a copy of the collision rectangle for the entity. 
 
   .. _method-controllable-hurt_rect:
 
-  \ **rectangle**\ @ *hurt_rect*\ ()
+  \ :ref:`rectangle<class-rectangle>`\ @ *hurt_rect*\ ()
 
     Returns a copy of the hurtbox rectangle for the entity. 
 
@@ -2180,7 +2204,7 @@ class controllable
 
   .. _method-controllable-hitbox:
 
-  \ **hitbox**\ @ *hitbox*\ ()
+  \ :ref:`hitbox<class-hitbox>`\ @ *hitbox*\ ()
 
     Returns the current hitbox controller for this entity. This may be null
     if the controllabe isn't attacking. The hitbox object associated with each
@@ -2289,7 +2313,7 @@ class controllable
 
   .. _method-controllable-check_collision:
 
-  \ **bool**\  *check_collision*\ (\ **tilecollision**\ @ t, \ **int**\  side, \ **bool**\  moving, \ **float**\  snap_offset)
+  \ **bool**\  *check_collision*\ (\ :ref:`tilecollision<class-tilecollision>`\ @ t, \ **int**\  side, \ **bool**\  moving, \ **float**\  snap_offset)
 
     Performs the default collision check on the specified side used by
     all entities and writes the result into t.
@@ -2356,13 +2380,13 @@ class controllable
 
   .. _method-controllable-hit_collision:
 
-  \ **collision**\ @ *hit_collision*\ ()
+  \ :ref:`collision<class-collision>`\ @ *hit_collision*\ ()
 
     Returns the hurt collision object for this controlable. 
 
   .. _method-controllable-hit_rectangle:
 
-  \ **rectangle**\ @ *hit_rectangle*\ ()
+  \ :ref:`rectangle<class-rectangle>`\ @ *hit_rectangle*\ ()
 
   .. _method-controllable-hit_rectangle-2:
 
@@ -2370,7 +2394,7 @@ class controllable
 
   .. _method-controllable-hit_rectangle-3:
 
-  \ **void**\  *hit_rectangle*\ (\ **rectangle**\ @ rect)
+  \ **void**\  *hit_rectangle*\ (\ :ref:`rectangle<class-rectangle>`\ @ rect)
 
   .. _method-controllable-team:
 
@@ -2433,6 +2457,8 @@ class controllable
     Return the player index of this controllable entity. If the entity is not
     associated with a player returns -1. This is the reverse function of
     controller_entity(player). 
+
+.. _class-dustman:
 
 class dustman
 #############
@@ -2774,13 +2800,15 @@ class dustman
     The 'arg' value passed to on_subframe_end_callback
     will match the 'arg' parameter passed to the callback. 
 
+.. _class-hitbox:
+
 class hitbox
 ############
   Inherits: `entity <#class-entity>`_
 
   .. _method-hitbox-owner:
 
-  \ **controllable**\ @ *owner*\ ()
+  \ :ref:`controllable<class-controllable>`\ @ *owner*\ ()
 
   .. _method-hitbox-damage:
 
@@ -2918,6 +2946,8 @@ class hitbox
 
     See the hit_outcomes enumeration for possible values. 
 
+.. _class-scripttrigger:
+
 class scripttrigger
 ###################
   Inherits: `entity <#class-entity>`_
@@ -3027,6 +3057,8 @@ class scripttrigger
 
     Use after changing persistent variables via script to update values in the trigger script panel. 
 
+.. _class-scriptenemy:
+
 class scriptenemy
 #################
   Inherits: `controllable <#class-controllable>`_
@@ -3065,6 +3097,8 @@ class scriptenemy
   \ **void**\  *editor_sync_vars_menu*\ ()
 
     Use after changing persistent variables via script to update values in the enemy script panel. 
+
+.. _class-sprites:
 
 class sprites
 #############
@@ -3122,7 +3156,7 @@ class sprites
 
   .. _method-sprites-get_sprite_rect:
 
-  \ **rectangle**\ @ *get_sprite_rect*\ (\ **string**\  sprite_name, \ **uint32**\  frame)
+  \ :ref:`rectangle<class-rectangle>`\ @ *get_sprite_rect*\ (\ **string**\  sprite_name, \ **uint32**\  frame)
 
     Returns the bounding rectangle around the sprite if it were rendered at the
     origin. 
@@ -3146,6 +3180,8 @@ class sprites
   \ **void**\  *draw_hud*\ (\ **int**\  layer, \ **int**\  sub_layer, \ **string**\  spriteName, \ **uint32**\  frame, \ **uint32**\  palette, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **uint32**\  colour)
 
     Like draw_world except drawing in the hud. 
+
+.. _class-prop:
 
 class prop
 ##########
@@ -3257,6 +3293,8 @@ class prop
 
   \ **void**\  *sub_layer*\ (\ **uint**\  sub_layer)
 
+.. _class-textfield:
+
 class textfield
 ###############
   Represents a text field used to render text to the screen. 
@@ -3342,6 +3380,8 @@ class textfield
 
   \ **void**\  *draw_hud*\ (\ **int**\  layer, \ **int**\  sub_layer, \ **float**\  x, \ **float**\  y, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  rotation)
 
+.. _class-varvalue:
+
 class varvalue
 ##############
   A common interface used to represent a variable of any type. 
@@ -3426,15 +3466,17 @@ class varvalue
 
   .. _method-varvalue-get_struct:
 
-  \ **varstruct**\ @ *get_struct*\ ()
+  \ :ref:`varstruct<class-varstruct>`\ @ *get_struct*\ ()
 
     Returns a modifiable handle to the struct pointed to by this var. 
 
   .. _method-varvalue-get_array:
 
-  \ **vararray**\ @ *get_array*\ ()
+  \ :ref:`vararray<class-vararray>`\ @ *get_array*\ ()
 
     Returns a modifiable handle to the array pointed to by this var. 
+
+.. _class-vararray:
 
 class vararray
 ##############
@@ -3442,7 +3484,7 @@ class vararray
 
   .. _method-vararray-at:
 
-  \ **varvalue**\ @ *at*\ (\ **uint32**\  index)
+  \ :ref:`varvalue<class-varvalue>`\ @ *at*\ (\ **uint32**\  index)
 
     Get the i-th value in this array. Returns null for indicies outside the
     bounds of the array. 
@@ -3466,19 +3508,21 @@ class vararray
     Resizes this array. If the array size is extended the new elements are not
     initialized. 
 
+.. _class-varstruct:
+
 class varstruct
 ###############
   Represents a dictionary of string keys to vars. 
 
   .. _method-varstruct-get_var:
 
-  \ **varvalue**\ @ *get_var*\ (\ **string**\  var)
+  \ :ref:`varvalue<class-varvalue>`\ @ *get_var*\ (\ **string**\  var)
 
     Retrieves a var based on its name. 
 
   .. _method-varstruct-get_var-2:
 
-  \ **varvalue**\ @ *get_var*\ (\ **uint32**\  index)
+  \ :ref:`varvalue<class-varvalue>`\ @ *get_var*\ (\ **uint32**\  index)
 
     Retrieves the index'th var. 
 
@@ -3499,6 +3543,8 @@ class varstruct
   \ **string**\  *var_name*\ (\ **uint32**\  index)
 
     Returns the name of the index'th var. 
+
+.. _class-message:
 
 class message
 #############
@@ -3576,11 +3622,11 @@ class message
 
   .. _method-message-get_entity:
 
-  \ **entity**\ @ *get_entity*\ (\ **string**\  key)
+  \ :ref:`entity<class-entity>`\ @ *get_entity*\ (\ **string**\  key)
 
   .. _method-message-set_entity:
 
-  \ **void**\  *set_entity*\ (\ **string**\  key, \ **entity**\ @ e)
+  \ **void**\  *set_entity*\ (\ **string**\  key, \ :ref:`entity<class-entity>`\ @ e)
 
   .. _method-message-has_entity:
 
@@ -3593,6 +3639,8 @@ class message
   .. _method-message-get_key_entity:
 
   \ **string**\  *get_key_entity*\ (\ **uint**\  index)
+
+.. _class-var_info:
 
 class var_info
 ##############
@@ -3634,6 +3682,8 @@ class var_info
     in the format: "parent_var.parent_var2.var"
     If include_array_indices is true, arrays in the path will also
     include an index, e.g. "parent_var[i]" 
+
+.. _class-texture_type_query:
 
 class texture_type_query
 ########################
@@ -3678,6 +3728,8 @@ class texture_type_query
     Valid textures are `"none"`, `"stone"`, `"dirt"`, `"metal"`, `"grass"`
     `"water"`, `"wood"`, `"carpet"`, or `"poly"`.
     
+
+.. _class-canvas:
 
 class canvas
 ############
@@ -3745,15 +3797,11 @@ class canvas
 
   .. _method-canvas-draw_sprite:
 
-  \ **void**\  *draw_sprite*\ (\ **sprites**\ @ spr, \ **string**\  spriteName, \ **uint32**\  frame, \ **uint32**\  palette, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **uint32**\  colour)
-
-  .. _method-canvas-text:
-
-  \ **void**\  *text*\ (\ **draw**\ @ txt, \ **float**\  x, \ **float**\  y, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  rotation)
+  \ **void**\  *draw_sprite*\ (\ :ref:`sprites<class-sprites>`\ @ spr, \ **string**\  spriteName, \ **uint32**\  frame, \ **uint32**\  palette, \ **float**\  x, \ **float**\  y, \ **float**\  rotation, \ **float**\  scale_x, \ **float**\  scale_y, \ **uint32**\  colour)
 
   .. _method-canvas-draw_text:
 
-  \ **void**\  *draw_text*\ (\ **textfield**\ @ txt, \ **float**\  x, \ **float**\  y, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  rotation)
+  \ **void**\  *draw_text*\ (\ :ref:`textfield<class-textfield>`\ @ txt, \ **float**\  x, \ **float**\  y, \ **float**\  scale_x, \ **float**\  scale_y, \ **float**\  rotation)
 
   .. _method-canvas-transform_point:
 
@@ -3834,6 +3882,8 @@ class canvas
 
   \ **void**\  *scale_hud*\ (\ **bool**\  scale_hud)
 
+.. _class-timedate:
+
 class timedate
 ##############
   Definitions match those described in
@@ -3876,12 +3926,10 @@ class timedate
 
   \ **int**\  *isdst*\ ()
 
+.. _class-fog_setting:
+
 class fog_setting
 #################
-  .. _method-fog_setting-layer_index:
-
-  \ **uint**\  *layer_index*\ (\ **uint**\  layer, \ **uint**\  sublayer)
-
   .. _method-fog_setting-colour:
 
   \ **uint**\  *colour*\ (\ **uint**\  layer, \ **uint**\  sublayer)
@@ -3985,6 +4033,8 @@ class fog_setting
   .. _method-fog_setting-stars_bot-2:
 
   \ **void**\  *stars_bot*\ (\ **float**\  s_bot)
+
+.. _class-editor_api:
 
 class editor_api
 ################
@@ -4110,13 +4160,13 @@ class editor_api
 
   .. _method-editor_api-get_selected_trigger:
 
-  \ **entity**\ @ *get_selected_trigger*\ ()
+  \ :ref:`entity<class-entity>`\ @ *get_selected_trigger*\ ()
 
     Returns the selected trigger. 
 
   .. _method-editor_api-get_selected_entity:
 
-  \ **entity**\ @ *get_selected_entity*\ ()
+  \ :ref:`entity<class-entity>`\ @ *get_selected_entity*\ ()
 
     Returns the selected entity. 
 
@@ -4189,7 +4239,7 @@ class editor_api
 
   .. _method-editor_api-select_rectangle:
 
-  \ **rectangle**\ @ *select_rectangle*\ ()
+  \ :ref:`rectangle<class-rectangle>`\ @ *select_rectangle*\ ()
 
   .. _method-editor_api-selected_entity_count:
 
@@ -4199,7 +4249,7 @@ class editor_api
 
   .. _method-editor_api-selected_entity:
 
-  \ **entity**\ @ *selected_entity*\ (\ **uint**\  index)
+  \ :ref:`entity<class-entity>`\ @ *selected_entity*\ (\ **uint**\  index)
 
     Return the index-th selected entity or null if no entity exists at that index. 
 
@@ -4211,9 +4261,11 @@ class editor_api
 
   .. _method-editor_api-selected_prop:
 
-  \ **prop**\ @ *selected_prop*\ (\ **uint**\  index)
+  \ :ref:`prop<class-prop>`\ @ *selected_prop*\ (\ **uint**\  index)
 
     Return the index-th selected prop or null if no prop exists at that index. 
+
+.. _class-input_api:
 
 class input_api
 ###############
@@ -4407,8 +4459,28 @@ class input_api
     frame advance
     
 
+.. _class-nexus_api:
+
 class nexus_api
 ###############
+  API methods useful within a nexus. These allow you to access/modify
+  information about used keys and what levels have been completed within
+  the nexus.
+  
+  Internally, Dustforce tracks two types of information within a nexus.
+  
+  - Key usage information. This information is updated whenever you open
+    a new door.
+  - Level completion information. This includes information about highest
+    ranking score/completion, best time, and what key type the level
+    granted.
+  
+  Notably keys earned and keys available are not tracked directly and are
+  just a function of the above two pieces of information. The game also keeps
+  track of what doors have been opened by inserting level score data when
+  the level is first opened that has completion and finesse each set to -1.
+  
+
   .. _method-nexus_api-get_keys_used:
 
   \ **void**\  *get_keys_used*\ (\ **int**\  &out wood, \ **int**\  &out silver, \ **int**\  &out gold, \ **int**\  &out red, \ **bool**\  &out ngplus)
@@ -4448,11 +4520,27 @@ class nexus_api
 
   \ **bool**\  *score_lookup*\ (\ **string**\  level, \ **int**\  &out thorough, \ **int**\  &out finesse, \ **float**\  &out time, \ **int**\  &out key_type)
 
-    Lookup the score data for a given level 
+    Lookup the score data for a given level.
+    
+    Arguments:
+      :level: The name of the level to lookup
+      :thorough: The "completion" score 1-5 mapping to D-S. -1 indicates the
+                 level door has been opened but has not be completed.
+      :finesse: The "finesse" score with the same semantics as `thorough`.
+      :time: The fastest completion time for the level. Dustforce tracks this
+             although does nothing with this information natively.
+      :key_type: The type of key rewarded for beating the level. 0=none,
+                 1=silver, 2=gold, 3=red, 4=wood.
+    
+    Returns:
+      True if an entry was found for the level and the out variables have been
+      set.
+    
 
   .. _method-nexus_api-score_set:
 
   \ **void**\  *score_set*\ (\ **string**\  level, \ **int**\  thorough, \ **int**\  finesse, \ **float**\  time, \ **int**\  key_type)
 
-    Set the score data for a given level 
+    Set the score data for a given level. Variables have the same semantics as
+    in \ :ref:`score_lookup<method-nexus_api-score_lookup>`\ . 
 

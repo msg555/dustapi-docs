@@ -1,3 +1,5 @@
+.. _class-enemy_base:
+
 class enemy_base
 ################
   Extend this class to create a new type of script-backed enemy.
@@ -7,7 +9,7 @@ class enemy_base
 
   .. _method-enemy_base-init:
 
-  \ **void**\  *init*\ (\ **script**\ @ s, \ **scriptenemy**\ @ self)
+  \ **void**\  *init*\ (\ :ref:`script<class-script>`\ @ s, \ :ref:`scriptenemy<class-scriptenemy>`\ @ self)
 
     Called after the enemy is constructed, passing the corresponding game
     :ref:`scriptenemy<class scriptenemy>` handle. 
@@ -57,13 +59,13 @@ class enemy_base
 
   .. _method-enemy_base-editor_var_changed:
 
-  \ **void**\  *editor_var_changed*\ (\ **var_info**\ @ info)
+  \ **void**\  *editor_var_changed*\ (\ :ref:`var_info<class-var_info>`\ @ info)
 
     Called when one of this enemy's variables is modified in the editor 
 
   .. _method-enemy_base-on_message:
 
-  \ **void**\  *on_message*\ (\ **string**\  id, \ **message**\ @ msg)
+  \ **void**\  *on_message*\ (\ **string**\  id, \ :ref:`message<class-message>`\ @ msg)
 
     Called when a message has been sent to the entity with
     ``entity.send_message(id, @msg)``. 

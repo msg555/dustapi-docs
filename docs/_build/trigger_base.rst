@@ -1,3 +1,5 @@
+.. _class-trigger_base:
+
 class trigger_base
 ##################
   Extend this class to create a new type of script-backed trigger.
@@ -101,10 +103,14 @@ class trigger_base
     [position,mode:world,layer:19,y:pos_y] float pos_x;
     [hidden] float pos_y; // Declare the var hidden so it is persisted.
   
+  Your trigger must have an empty constructor. (unless
+  there are no constructors at all in which a default one is implied) for
+  the trigger to be usable.
+  
 
   .. _method-trigger_base-init:
 
-  \ **void**\  *init*\ (\ **script**\ @ s, \ **scripttrigger**\ @ self)
+  \ **void**\  *init*\ (\ :ref:`script<class-script>`\ @ s, \ :ref:`scripttrigger<class-scripttrigger>`\ @ self)
 
     Called after the trigger is constructed, passing the corresponding game
     :ref:`scripttrigger<class scripttrigger>` handle. 
@@ -135,7 +141,7 @@ class trigger_base
 
   .. _method-trigger_base-editor_var_changed:
 
-  \ **void**\  *editor_var_changed*\ (\ **var_info**\ @ info)
+  \ **void**\  *editor_var_changed*\ (\ :ref:`var_info<class-var_info>`\ @ info)
 
     Called when one of this trigger's variables is modified in the editor 
 
@@ -155,13 +161,13 @@ class trigger_base
 
   .. _method-trigger_base-editor_var_changed-2:
 
-  \ **void**\  *editor_var_changed*\ (\ **var_info**\ @ info)
+  \ **void**\  *editor_var_changed*\ (\ :ref:`var_info<class-var_info>`\ @ info)
 
     Called when one of this trigger's variables is modified in the editor 
 
   .. _method-trigger_base-activate:
 
-  \ **void**\  *activate*\ (\ **controllable**\ @ e)
+  \ **void**\  *activate*\ (\ :ref:`controllable<class-controllable>`\ @ e)
 
     Called when any controllable object within the region associated with
     the trigger. :ref:`activate()<method-trigger_base-activate>` is called
@@ -169,7 +175,7 @@ class trigger_base
 
   .. _method-trigger_base-on_message:
 
-  \ **void**\  *on_message*\ (\ **string**\  id, \ **message**\ @ msg)
+  \ **void**\  *on_message*\ (\ **string**\  id, \ :ref:`message<class-message>`\ @ msg)
 
     Called when a message has been sent to the entity with
     ``entity.send_message(id, @msg)``. 

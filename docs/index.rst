@@ -1,14 +1,19 @@
-Script Objects
-==============
 
-.. include:: _templates/script.rst
+References
+==========
 
-Dustapi Documentation
-=====================
+.. toctree::
+   :caption: Script Definitions
+   :titlesonly:
 
-.. include:: _build/dustapi.rst
+   script
 
-Enum Definitions
-================
+.. toctree::
+   :caption: Dustmod APIs
 
-.. include:: _templates/enums.rst
+   dustapi
+
+.. toctree::
+   :caption: Enums
+
+   enums

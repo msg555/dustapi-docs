@@ -99,13 +99,12 @@
  *   
  *   [position,mode:world,layer:19,y:pos_y] float pos_x;
  *   [hidden] float pos_y; // Declare the var hidden so it is persisted.
+ *
+ * Your trigger must have an empty constructor. (unless
+ * there are no constructors at all in which a default one is implied) for
+ * the trigger to be usable.
  */
-class api_trigger_base {
-  /* Setup initial variables. An empty constructor must be present (unless
-   * there are no constructors at all in which a default one is implied) for
-   * triggers to be usable. */
-  mytrigger();
-  
+class trigger_base {
   /* Called after the trigger is constructed, passing the corresponding game
    * :ref:`scripttrigger<class scripttrigger>` handle. */
   void init(script@ s, scripttrigger@ self);

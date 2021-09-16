@@ -1,3 +1,5 @@
+.. _class-script:
+
 class script
 ############
   The entry point - each script must have a single class named *script*. 
@@ -18,13 +20,13 @@ class script
 
   .. _method-script-entity_on_add:
 
-  \ **void**\  *entity_on_add*\ (\ **entity**\ @ e)
+  \ **void**\  *entity_on_add*\ (\ :ref:`entity<class-entity>`\ @ e)
 
     Called when an entity is added to the scene. 
 
   .. _method-script-entity_on_remove:
 
-  \ **void**\  *entity_on_remove*\ (\ **entity**\ @ e)
+  \ **void**\  *entity_on_remove*\ (\ :ref:`entity<class-entity>`\ @ e)
 
     Called when an entity is removed from the scene. 
 
@@ -34,7 +36,7 @@ class script
 
     Called before the entity list to process has been constructed as an
     opportunity to move the camera. Moving the camera in
-    :ref:`step()<method-script-step>` will be too late to affect what segments
+    \ :ref:`script.step<method-script-step>`\  will be too late to affect what segments
     and entities are loaded and stepped.
     
 
@@ -44,7 +46,7 @@ class script
 
     Called every frame (60fps) prior to all entities having their step
     function called. The list of entities going to be stepped can be accessed
-    with ``entity_by_index(i)`` for ``0 <= i < entities``.
+    with \ :ref:`entity_by_index<func-entity_by_index>`\ (i) for ``0 <= i < entities``.
     
 
   .. _method-script-step_post:
@@ -88,13 +90,13 @@ class script
 
   .. _method-script-editor_var_changed:
 
-  \ **void**\  *editor_var_changed*\ (\ **var_info**\ @ info)
+  \ **void**\  *editor_var_changed*\ (\ :ref:`var_info<class-var_info>`\ @ info)
 
     Called when one of this script's variables is modified in the editor 
 
   .. _method-script-spawn_player:
 
-  \ **void**\  *spawn_player*\ (\ **message**\ @ msg)
+  \ **void**\  *spawn_player*\ (\ :ref:`message<class-message>`\ @ msg)
 
     Spawn a player controllable. The following parameters will be set
     in the passed message:
@@ -113,10 +115,10 @@ class script
 
   .. _method-script-build_sprites:
 
-  \ **void**\  *build_sprites*\ (\ **message**\ @ msg)
+  \ **void**\  *build_sprites*\ (\ :ref:`message<class-message>`\ @ msg)
 
     Used to set custom sprite data from embedded values. See
-    :ref:`has_embed_value()<method-has_embed_value>` for more details on how
+    \ :ref:`has_embed_value<func-has_embed_value>`\ () for more details on how
     to embed a value. Sprites should be in PNG format.
     
     For each sprite you wish to create add a string to the message with the
@@ -132,7 +134,7 @@ class script
 
   .. _method-script-build_sounds:
 
-  \ **void**\  *build_sounds*\ (\ **message**\ @ msg)
+  \ **void**\  *build_sounds*\ (\ :ref:`message<class-message>`\ @ msg)
 
     Userd to set custom sound data from embedded values similar to
     :ref:`build_sprites()<method-script-build_sprites>`.

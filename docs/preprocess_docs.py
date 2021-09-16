@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import argparse
 import collections
+import re
 import sys
 
 from pyparsing import (
@@ -89,7 +91,26 @@ def strip_text(text):
     return "".join(chunks)
 
 
-def emit_comment(out, indent, comment):
+def mangle_refs(line, ref_context=None):
+    ref_context = ref_context or {}
+    def repl(m):
+        name = m.group(2)
+        if m.group(1) == "class":
+            return f"\\ :ref:`{name}<class-{name}>`\\ "
+        elif m.group(1) in ("func", "function"):
+            return f"\\ :ref:`{name}<func-{name}>`\\ "
+        elif m.group(1) in ("meth", "method"):
+            parts = name.split(".", 1)
+            if len(parts) == 1:
+                return f"\\ :ref:`{name}<method-{ref_context.get('class', '')}-{name}>`\\ "
+            else:
+                return f"\\ :ref:`{name}<method-{'-'.join(parts)}>`\\ "
+        return m.group(0)
+
+    return re.sub(r":([a-z]+):`([a-zA-Z_:.]+)`", repl, line)
+
+
+def emit_comment(out, indent, comment, ref_context=None):
     leading_spaces = None
     for comment_line in comment.split("\n"):
         comment_line = comment_line.strip()
@@ -116,13 +137,13 @@ def emit_comment(out, indent, comment):
                 raise ValueError("unexpected comment indentation")
 
             comment_line = comment_line[leading_spaces:]
-        out.write(f"{indent}{comment_line}\n")
+        out.write(f"{indent}{mangle_refs(comment_line, ref_context=ref_context)}\n")
     out.write("\n")
 
 
-def strip_api(identifier):
-    if identifier.startswith("api_"):
-        return identifier[4:]
+def strip_prefix(identifier, prefix):
+    if identifier.startswith(prefix):
+        return identifier[len(prefix):]
     return identifier
 
 
@@ -136,7 +157,13 @@ def format_type_identifier(type_id, name_override=None):
             type_id.ref,
         )
 
-    return f"\\ **{type_name}**\\ {type_id.ref}"
+    type_ref = f"**{type_name}**"
+    if type_name.startswith("int") or type_name.startswith("uint") or type_name.endswith("_base"):
+        pass
+    elif type_name not in ("void", "float", "string", "bool"):
+        type_ref = f":ref:`{type_name}<class-{type_name}>`"
+
+    return f"\\ {type_ref}\\ {type_id.ref}"
 
 
 def format_arg(arg, type_name_override=None):
@@ -165,13 +192,13 @@ def bite_func_name_chunk(name):
         return name[pos + 1:], name[:pos].replace("__", "_")
 
 
-def emit_funcdef(out, indent, funcdef, parent_name, comment, name_ctr):
+def emit_funcdef(out, indent, funcdef, parent_name, comment, name_ctr, prefix):
     if not funcdef.func_type:
         # Functions without return types are constructors which we don't
         # want to generate docs for.
         return
 
-    func_name = strip_api(funcdef.func_name)
+    func_name = strip_prefix(funcdef.func_name, prefix)
     func_type = funcdef.func_type
     if func_name.startswith("ret_"):
         func_name, return_type = bite_func_name_chunk(func_name[4:])
@@ -193,20 +220,30 @@ def emit_funcdef(out, indent, funcdef, parent_name, comment, name_ctr):
     if parent_name:
         out.write(f"{indent}.. _method-{parent_name}-{func_name}{label_suffix}:\n\n")
     else:
-        out.write(f"{indent}.. _method-{func_name}{label_suffix}:\n\n")
+        out.write(f"{indent}.. _func-{func_name}{label_suffix}:\n\n")
 
-    out.write(f"{indent}{format_type_identifier(func_type)} ")
-    out.write(f"*{func_name}*\ ({', '.join(args)})\n\n")
+    func_def_line = f"{format_type_identifier(func_type)} " \
+                    f"*{func_name}*\ ({', '.join(args)})"
+    out.write(f"{indent}{func_def_line}\n\n")
     if comment:
-        emit_comment(out, indent + "  ", comment)
+        emit_comment(
+            out,
+            indent + "  ",
+            comment,
+            ref_context={
+                "class": parent_name,
+                "func": func_name,
+            },
+        )
 
 
-def emit_classdef(out, indent, classdef, comment):
-    base_types = set(strip_api(base_type) for base_type in classdef.base_types)
+def emit_classdef(out, indent, classdef, comment, prefix):
+    base_types = set(strip_prefix(base_type, prefix) for base_type in classdef.base_types)
     base_types.discard("linked_script_object")
 
-    class_name = strip_api(classdef.class_name)
+    class_name = strip_prefix(classdef.class_name, prefix)
 
+    out.write(f"{indent}.. _class-{class_name}:\n\n")
     out.write(f"{indent}class {class_name}\n")
     out.write(indent + "#" * (len(class_name) + 6) + "\n")
 
@@ -221,21 +258,30 @@ def emit_classdef(out, indent, classdef, comment):
     if comment:
         emit_comment(out, indent + "  ", comment)
 
-    emit_class_members(out, indent + "  ", classdef, class_name)
+    emit_class_members(out, indent + "  ", classdef, class_name, prefix)
 
 
-def emit_class_members(out, indent, classdef, class_name):
+def emit_class_members(out, indent, classdef, class_name, prefix):
     name_ctr = collections.Counter()
     last_comment = None
     for part in classdef.class_parts:
         if part.comment:
             last_comment = part.comment
-        if part.class_func:
-            emit_funcdef(out, indent, part.class_func, class_name, last_comment, name_ctr)
+        if part.class_func and part.class_func.func_name.startswith(prefix):
+            emit_funcdef(out, indent, part.class_func, class_name, last_comment, name_ctr, prefix)
             last_comment = None
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Preprocess documentation into RST")
+    parser.add_argument(
+        "--prefix",
+        default="",
+        required=False,
+        help="Required class/method name prefix to be included",
+    )
+    args = parser.parse_args()
+
     text = sys.stdin.read()
     text = strip_text(text)
     
@@ -249,12 +295,12 @@ def main():
         if not part.classdef:
             continue
         if part.classdef.class_name == "user_script":
-            emit_class_members(sys.stdout, "", part.classdef, "")
+            emit_class_members(sys.stdout, "", part.classdef, "", args.prefix)
             continue
-        if not part.classdef.class_name.startswith("api_"):
+        if not part.classdef.class_name.startswith(args.prefix):
             continue
 
-        emit_classdef(sys.stdout, "", part.classdef, last_comment)
+        emit_classdef(sys.stdout, "", part.classdef, last_comment, args.prefix)
         last_comment = None
 
 
