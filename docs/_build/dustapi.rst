@@ -2824,7 +2824,7 @@ class hitbox
 
   \ **float**\  *attack_ff_strength*\ ()
 
-    Attack freeze frame strength. Controls how long the hit entity is fronzen.
+    Attack freeze frame strength. Controls how long the hit entity is frozen.
     
 
   .. _method-hitbox-attack_ff_strength-2:
