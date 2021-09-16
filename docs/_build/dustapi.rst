@@ -1,3 +1,16 @@
+.. _method-puts:
+
+\ **void**\  *puts*\ (const \ **string**\  &in msg)
+
+  Write a string to the console on its own line. 
+
+.. _method-tputs:
+
+\ **void**\  *tputs*\ (const \ **string**\  &in msg)
+
+  Write a string to the console on its own line with an additional
+  timestamp heading. 
+
 .. _method-script_name:
 
 \ **string**\  *script_name*\ ()
