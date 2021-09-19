@@ -212,9 +212,8 @@
 
 \ :ref:`entity<class-entity>`\ @ *create_entity*\ (\ **string**\  type_name)
 
-  Create an entity object of the given type.  See
-  https://gist.github.com/msg555/dcdc9d0644a813259072fe7b1cbdac30 for a
-  list of types that can be created. 
+  Create an entity object of the given type. See :doc:`creatable_entities`
+  for a list of entity types that can be created. 
 
 .. _func-create_textfield:
 
