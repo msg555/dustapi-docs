@@ -3017,6 +3017,9 @@ class effect
 ############
   Inherits: `entity <#class-entity>`_
 
+  Represents a sprite animation that can optionally move or follow the path of
+  an existing entity. 
+
   .. _method-effect-slow_down:
 
   \ **bool**\  *slow_down*\ ()
@@ -3071,6 +3074,10 @@ class effect
 
   \ :ref:`entity<class-entity>`\ @ *follow_target*\ ()
 
+    If not null then x/y positions of the effect will be interpretted as
+    an offset of the follow_target entity. This can be controlled in each
+    axis by toggling \ :ref:`follow_x<method-effect-follow_x>`\  and \ :ref:`follow_y<method-effect-follow_y>`\  as well. 
+
   .. _method-effect-follow_target-2:
 
   \ **void**\  *follow_target*\ (\ :ref:`entity<class-entity>`\ @ follow_target)
@@ -3078,6 +3085,10 @@ class effect
   .. _method-effect-freeze_target:
 
   \ :ref:`hittable<class-hittable>`\ @ *freeze_target*\ ()
+
+    If not null then the effect will freeze whenever freeze_target is
+    experiencing freeze frames.
+    
 
   .. _method-effect-freeze_target-2:
 
@@ -3087,6 +3098,8 @@ class effect
 
   \ **bool**\  *follow_x*\ ()
 
+    If true then the x-coordinate of the follow_target will be followed 
+
   .. _method-effect-follow_x-2:
 
   \ **void**\  *follow_x*\ (\ **bool**\  follow_x)
@@ -3094,6 +3107,8 @@ class effect
   .. _method-effect-follow_y:
 
   \ **bool**\  *follow_y*\ ()
+
+    If true then the y-coordinate of the follow_target will be followed 
 
   .. _method-effect-follow_y-2:
 
