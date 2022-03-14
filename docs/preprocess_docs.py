@@ -295,6 +295,9 @@ def main():
         if not part.classdef:
             continue
         if part.classdef.class_name == "user_script":
+            if last_comment:
+                emit_comment(sys.stdout, "" + "  ", last_comment)
+                last_comment = None
             emit_class_members(sys.stdout, "", part.classdef, "", args.prefix)
             continue
         if not part.classdef.class_name.startswith(args.prefix):

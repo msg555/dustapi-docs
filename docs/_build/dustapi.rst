@@ -1,3 +1,5 @@
+  API methods included here are globally accessible within a script. 
+
 .. _func-puts:
 
 \ **void**\  *puts*\ (const \ **string**\  &in msg)
@@ -359,8 +361,6 @@
 
 class scene
 ###########
-  API methods included here are globally accessible within a script. 
-
   .. _method-scene-map_name:
 
   \ **string**\  *map_name*\ ()
