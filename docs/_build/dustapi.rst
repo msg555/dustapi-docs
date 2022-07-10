@@ -223,6 +223,12 @@
 
   Create a new textfield that can be used to draw text to the screen. 
 
+.. _func-create_filthball:
+
+\ :ref:`filthball<class-filthball>`\ @ *create_filthball*\ (\ **int**\  filth_type, \ **float**\  x, \ **float**\  y, \ **float**\  baseWidth, \ **float**\  baseHeight, \ **int**\  dir, \ **float**\  distance)
+
+  Create a new filth ball object. 
+
 .. _func-create_scripttrigger:
 
 \ :ref:`scripttrigger<class-scripttrigger>`\ @ *create_scripttrigger*\ (\ **trigger_base**\ @ obj)
@@ -482,7 +488,7 @@ class scene
     the direction of 'direction' +/- spreadAngle.
     
     The top/bottom/left/right flags indicate which types of surfaces can be
-    affected.  'affectSpikes' indicates if spieks should be overwritten,
+    affected.  'affectSpikes' indicates if spikes should be overwritten,
     'overwrite' indicates if only edges with no filth should be affected.
     
     Affected tiles with have their edge type set to 'type'.  See tilefilth
@@ -1812,8 +1818,15 @@ class entity
 
   \ :ref:`effect<class-effect>`\ @ *as_effect*\ ()
 
-    Attempt to recast this object as a effect object. Returns null if
+    Attempt to recast this object as an effect object. Returns null if
     the entity is not a effect object. 
+
+  .. _method-entity-as_filthball:
+
+  \ :ref:`filthball<class-filthball>`\ @ *as_filthball*\ ()
+
+    Attempt to recast this object as a filth ball object. Returns null if
+    the entity is not a filth  object. 
 
   .. _method-entity-as_scripttrigger:
 
@@ -3194,6 +3207,66 @@ class effect
   .. _method-effect-colour-2:
 
   \ **void**\  *colour*\ (\ **uint**\  b_colour)
+
+.. _class-filthball:
+
+class filthball
+###############
+  Inherits: `entity <#class-entity>`_
+
+  Spawned after an enemy is cleaned and calls
+  :ref:`scene::project_tile_filth<method-scene-project_tile_filth>` when the
+  state timer runs out.
+  
+  The top/bottom/left/right flags are calculated automatically based
+  on :ref:`direction<method-filthball-direction>`, and
+  :ref:`base_rectangle<method-entity-base_rectangle>` is used for the
+  'baseWidth' and 'baseHeight` arguments. 
+
+  .. _method-filthball-filth_type:
+
+  \ **int**\  *filth_type*\ ()
+
+    Controls the type of dust this entity spreads.
+    See :ref:`enum filth_types` for a list of possible values. 
+
+  .. _method-filthball-filth_type-2:
+
+  \ **void**\  *filth_type*\ (\ **int**\  filth_type)
+
+  .. _method-filthball-direction:
+
+  \ **int**\  *direction*\ ()
+
+    See :ref:`scene::project_tile_filth<method-scene-project_tile_filth>`
+    for a description of this value.
+    The top/bottom/left/right flags will automatically be set based on this. 
+
+  .. _method-filthball-direction-2:
+
+  \ **void**\  *direction*\ (\ **int**\  direction)
+
+  .. _method-filthball-distance:
+
+  \ **float**\  *distance*\ ()
+
+    See :ref:`scene::project_tile_filth<method-scene-project_tile_filth>`
+     for a description of this value. 
+
+  .. _method-filthball-distance-2:
+
+  \ **void**\  *distance*\ (\ **float**\  distance)
+
+  .. _method-filthball-state_timer:
+
+  \ **float**\  *state_timer*\ ()
+
+    When this counts down to zero the filth ball will spread dust and remove
+    itself from the scene. 
+
+  .. _method-filthball-state_timer-2:
+
+  \ **void**\  *state_timer*\ (\ **float**\  state_timer)
 
 .. _class-scripttrigger:
 
