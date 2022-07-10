@@ -1634,20 +1634,20 @@ class camera
 
   .. _method-camera-try_connect:
 
-  \ **bool**\  *try_connect*\ (\ :ref:`camera_node<class-camera_node>`\ @ cam_node)
+  \ **bool**\  *try_connect*\ (\ :ref:`camera_node<class-camera_node>`\ @ node)
 
     Attempts to connect to the given camera node.
     Returns true on success. 
 
   .. _method-camera-current_node:
 
-  \ :ref:`entity<class-entity>`\ @ *current_node*\ ()
+  \ :ref:`camera_node<class-camera_node>`\ @ *current_node*\ ()
 
     The current node on the camera path. 
 
   .. _method-camera-next_node:
 
-  \ :ref:`entity<class-entity>`\ @ *next_node*\ ()
+  \ :ref:`camera_node<class-camera_node>`\ @ *next_node*\ ()
 
     The next node on the camera path. 
 
