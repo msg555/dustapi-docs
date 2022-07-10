@@ -2501,6 +2501,28 @@ class controllable
     associated with a player returns -1. This is the reverse function of
     controller_entity(player). 
 
+  .. _method-controllable-filth_type:
+
+  \ **int**\  *filth_type*\ ()
+
+    Controls the type of dust this entity spread.
+    See :ref:`enum filth_types` for a list of possible values. 
+
+  .. _method-controllable-filth_type-2:
+
+  \ **void**\  *filth_type*\ (\ **int**\  filth_type)
+
+  .. _method-controllable-emitter_filth_type:
+
+  \ **int**\  *emitter_filth_type*\ ()
+
+    Controls the type of emitter created when hit.
+    If set to 'filth_type_default' the \ :ref:`filth_type<method-controllable-filth_type>`\  value will be used instead. 
+
+  .. _method-controllable-emitter_filth_type-2:
+
+  \ **void**\  *emitter_filth_type*\ (\ **int**\  filth_type)
+
 .. _class-dustman:
 
 class dustman
@@ -2792,6 +2814,17 @@ class dustman
 
   \ **void**\  *character*\ (\ **string**\  character)
 
+  .. _method-dustman-attack_filth_type:
+
+  \ **int**\  *attack_filth_type*\ ()
+
+    Controls the type of dust spread when attacking.
+    If set to 'filth_type_default' the :ref:`controllable::filth_type<method-controllable-filth_type>` value will be used instead. 
+
+  .. _method-dustman-attack_filth_type-2:
+
+  \ **void**\  *attack_filth_type*\ (\ **int**\  filth_type)
+
   .. _method-dustman-ai_disabled:
 
   \ **bool**\  *ai_disabled*\ ()
@@ -3074,7 +3107,7 @@ class effect
 
   \ :ref:`entity<class-entity>`\ @ *follow_target*\ ()
 
-    If not null then x/y positions of the effect will be interpretted as
+    If not null then x/y positions of the effect will be interpreted as
     an offset of the follow_target entity. This can be controlled in each
     axis by toggling \ :ref:`follow_x<method-effect-follow_x>`\  and \ :ref:`follow_y<method-effect-follow_y>`\  as well. 
 
