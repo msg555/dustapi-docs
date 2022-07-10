@@ -1550,7 +1550,7 @@ class camera
 
     Controls how far ahead the camera looks as a multiplier of the
     puppet velocity. Defaults to (1, 1)
-    This value is saved/loaded with checkpoints. 
+    This value is persisted with checkpoints. 
 
   .. _method-camera-get_lookahead:
 
@@ -1563,7 +1563,7 @@ class camera
     Controls how far ahead the camera looks based on the puppet velocity
     when attached to a camera path.
     Higher values result in less of an effect. Defaults to (5, 10)
-    This value is saved/loaded with checkpoints. 
+    This value is persisted with checkpoints. 
 
   .. _method-camera-get_path_lookahead:
 
@@ -1576,7 +1576,7 @@ class camera
     Controls how far outside of the screen the player must be to break camera
     as a multiplier of the screen size.
     Set to 1 for normal behaviour and 0 to disable.
-    This value is saved/loaded with checkpoints. 
+    This value is persisted with checkpoints. 
 
   .. _method-camera-break_distance-2:
 
@@ -1587,44 +1587,49 @@ class camera
   \ **void**\  *speed_change*\ (\ **float**\  speed_change)
 
     The rate at which the camera eases from it's current to the target position
-    every frame. 
+    every frame.
+    This value is persisted with checkpoints. 
 
   .. _method-camera-speed_change-2:
 
   \ **float**\  *speed_change*\ ()
 
-  .. _method-camera-set_script_speed:
+  .. _method-camera-set_custom_speed:
 
-  \ **void**\  *set_script_speed*\ (\ **float**\  x, \ **float**\  y)
+  \ **void**\  *set_custom_speed*\ (\ **float**\  x, \ **float**\  y)
 
-    A custom speed added to the camera puppet speed. 
+    A custom speed added to the camera puppet speed when calculating the
+    look ahead position.
+    This value is persisted with checkpoints. 
 
-  .. _method-camera-get_script_speed:
+  .. _method-camera-get_custom_speed:
 
-  \ **void**\  *get_script_speed*\ (\ **float**\  &out x, \ **float**\  &out y)
+  \ **void**\  *get_custom_speed*\ (\ **float**\  &out x, \ **float**\  &out y)
 
-  .. _method-camera-set_script_position:
+  .. _method-camera-set_position_override:
 
-  \ **void**\  *set_script_position*\ (\ **float**\  x, \ **float**\  y)
+  \ **void**\  *set_position_override*\ (\ **float**\  x, \ **float**\  y)
 
     If set the camera will target this position instead of the puppet
-    position. 
+    position.
+    This value is persisted with checkpoints. 
 
-  .. _method-camera-get_script_position:
+  .. _method-camera-get_target_override:
 
-  \ **void**\  *get_script_position*\ (\ **float**\  &out x, \ **float**\  &out y)
+  \ **void**\  *get_target_override*\ (\ **float**\  &out x, \ **float**\  &out y)
 
-  .. _method-camera-clear_script_position:
+  .. _method-camera-clear_position_override:
 
-  \ **void**\  *clear_script_position*\ ()
+  \ **void**\  *clear_position_override*\ ()
 
-    Resets the script position, making the camera target the puppet again. 
+    Disables the override position, making the camera target the puppet
+    again. 
 
-  .. _method-camera-has_script_position:
+  .. _method-camera-has_position_override:
 
-  \ **bool**\  *has_script_position*\ ()
+  \ **bool**\  *has_position_override*\ ()
 
-    Returns true if a script position is set. 
+    Returns true if an override position is set. 
 
   .. _method-camera-force_disconnect:
 
