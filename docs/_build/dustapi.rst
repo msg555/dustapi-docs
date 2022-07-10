@@ -3139,6 +3139,36 @@ class dustman
 
   \ **void**\  *dash_max*\ (\ **int**\  dash_max)
 
+  .. _method-dustman-dustblock_clear_speed:
+
+  \ **float**\  *dustblock_clear_speed*\ ()
+
+    Access the speed required to clear dustblocks when falling, as a
+    percentage of 'fall_max'. 
+
+  .. _method-dustman-dustblock_clear_speed-2:
+
+  \ **void**\  *dustblock_clear_speed*\ (\ **float**\  speed)
+
+  .. _method-dustman-dustblock_clear_rect:
+
+  \ :ref:`rectangle<class-rectangle>`\ @ *dustblock_clear_rect*\ ()
+
+    Get/set the rectangle relative to the player centre used to clear
+    dustblocks when falling. 
+
+  .. _method-dustman-dustblock_clear_rect-2:
+
+  \ **void**\  *dustblock_clear_rect*\ (\ :ref:`rectangle<class-rectangle>`\ @ rect)
+
+  .. _method-dustman-dustblock_clear_rect-3:
+
+  \ **void**\  *dustblock_clear_rect*\ (\ **float**\  top, \ **float**\  bottom, \ **float**\  left, \ **float**\  right)
+
+  .. _method-dustman-get_dustblock_clear_rect:
+
+  \ **void**\  *get_dustblock_clear_rect*\ (\ **float**\  &out top, \ **float**\  &out bottom, \ **float**\  &out left, \ **float**\  &out right)
+
   .. _method-dustman-character:
 
   \ **string**\  *character*\ ()
