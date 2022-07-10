@@ -1577,6 +1577,17 @@ class camera
 
   \ **float**\  *break_distance*\ ()
 
+  .. _method-camera-speed_change:
+
+  \ **void**\  *speed_change*\ (\ **float**\  speed_change)
+
+    The rate at which the camera eases from it's current to the target position
+    every frame. 
+
+  .. _method-camera-speed_change-2:
+
+  \ **float**\  *speed_change*\ ()
+
   .. _method-camera-set_script_speed:
 
   \ **void**\  *set_script_speed*\ (\ **float**\  x, \ **float**\  y)
