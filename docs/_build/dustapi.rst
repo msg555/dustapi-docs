@@ -223,9 +223,9 @@
 
   Create a new textfield that can be used to draw text to the screen. 
 
-.. _func-create_filthball:
+.. _func-create_filth_ball:
 
-\ :ref:`filthball<class-filthball>`\ @ *create_filthball*\ (\ **int**\  filth_type, \ **float**\  x, \ **float**\  y, \ **float**\  baseWidth, \ **float**\  baseHeight, \ **int**\  dir, \ **float**\  distance)
+\ :ref:`filth_ball<class-filth_ball>`\ @ *create_filth_ball*\ (\ **int**\  filth_type, \ **float**\  x, \ **float**\  y, \ **float**\  baseWidth, \ **float**\  baseHeight, \ **int**\  dir, \ **float**\  distance)
 
   Create a new filth ball object. 
 
@@ -2139,9 +2139,9 @@ class entity
     Attempt to recast this object as an effect object. Returns null if
     the entity is not a effect object. 
 
-  .. _method-entity-as_filthball:
+  .. _method-entity-as_filth_ball:
 
-  \ :ref:`filthball<class-filthball>`\ @ *as_filthball*\ ()
+  \ :ref:`filth_ball<class-filth_ball>`\ @ *as_filth_ball*\ ()
 
     Attempt to recast this object as a filth ball object. Returns null if
     the entity is not a filth  object. 
@@ -3572,10 +3572,10 @@ class effect
 
   \ **void**\  *colour*\ (\ **uint**\  b_colour)
 
-.. _class-filthball:
+.. _class-filth_ball:
 
-class filthball
-###############
+class filth_ball
+################
   Inherits: `entity <#class-entity>`_
 
   Spawned after an enemy is cleaned and calls
@@ -3583,22 +3583,22 @@ class filthball
   state timer runs out.
   
   The top/bottom/left/right flags are calculated automatically based
-  on :ref:`direction<method-filthball-direction>`, and
+  on :ref:`direction<method-filth_ball-direction>`, and
   :ref:`base_rectangle<method-entity-base_rectangle>` is used for the
   'baseWidth' and 'baseHeight` arguments. 
 
-  .. _method-filthball-filth_type:
+  .. _method-filth_ball-filth_type:
 
   \ **int**\  *filth_type*\ ()
 
     Controls the type of dust this entity spreads.
     See :ref:`enum filth_types` for a list of possible values. 
 
-  .. _method-filthball-filth_type-2:
+  .. _method-filth_ball-filth_type-2:
 
   \ **void**\  *filth_type*\ (\ **int**\  filth_type)
 
-  .. _method-filthball-direction:
+  .. _method-filth_ball-direction:
 
   \ **int**\  *direction*\ ()
 
@@ -3606,29 +3606,29 @@ class filthball
     for a description of this value.
     The top/bottom/left/right flags will automatically be set based on this. 
 
-  .. _method-filthball-direction-2:
+  .. _method-filth_ball-direction-2:
 
   \ **void**\  *direction*\ (\ **int**\  direction)
 
-  .. _method-filthball-distance:
+  .. _method-filth_ball-distance:
 
   \ **float**\  *distance*\ ()
 
     See :ref:`scene::project_tile_filth<method-scene-project_tile_filth>`
      for a description of this value. 
 
-  .. _method-filthball-distance-2:
+  .. _method-filth_ball-distance-2:
 
   \ **void**\  *distance*\ (\ **float**\  distance)
 
-  .. _method-filthball-state_timer:
+  .. _method-filth_ball-state_timer:
 
   \ **float**\  *state_timer*\ ()
 
     When this counts down to zero the filth ball will spread dust and remove
     itself from the scene. 
 
-  .. _method-filthball-state_timer-2:
+  .. _method-filth_ball-state_timer-2:
 
   \ **void**\  *state_timer*\ (\ **float**\  state_timer)
 
