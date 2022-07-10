@@ -63,6 +63,13 @@ class trigger_base
     **variable** as **YPARAM**. **MODE** can be "world" or "hud", defaulting
     to "world". **LAYER** is the layer to calculate the coordinates of from
     the user's mouse.
+  [entity,TYPE,TYPE,...]
+    | Use to select an entity id with the mouse.
+    | An optional list of allowed types can be given. If no **TYPE** type is
+      specified the defaults are hittable entities and triggers.
+    | The following values are supported:
+    |   ``default``, ``player``, ``enemy``, ``trigger``, ``camera``,
+        ``emitter``, ``flags``, ``kill_zone``
   [fixed:MODE]
     If present it will not be possible to add or remove items from arrays.
     **MODE** can be "all" (default), or "top".
