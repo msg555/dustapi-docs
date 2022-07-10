@@ -379,6 +379,46 @@ class scene
 
     Get the current level type. 
 
+  .. _method-scene-jump_enabled:
+
+  \ **bool**\  *jump_enabled*\ ()
+
+    Access the global flag to disable jump. 
+
+  .. _method-scene-jump_enabled-2:
+
+  \ **void**\  *jump_enabled*\ (\ **bool**\  enabled)
+
+  .. _method-scene-attack_enabled:
+
+  \ **bool**\  *attack_enabled*\ ()
+
+    Access the global flag to disable attack. 
+
+  .. _method-scene-attack_enabled-2:
+
+  \ **void**\  *attack_enabled*\ (\ **bool**\  enabled)
+
+  .. _method-scene-special_enabled:
+
+  \ **bool**\  *special_enabled*\ ()
+
+    Access the global flag to disable special. 
+
+  .. _method-scene-special_enabled-2:
+
+  \ **void**\  *special_enabled*\ (\ **bool**\  enabled)
+
+  .. _method-scene-dash_enabled:
+
+  \ **bool**\  *dash_enabled*\ ()
+
+    Access the global flag to disable dash. 
+
+  .. _method-scene-dash_enabled-2:
+
+  \ **void**\  *dash_enabled*\ (\ **bool**\  enabled)
+
   .. _method-scene-time_in_level:
 
   \ **float**\  *time_in_level*\ ()
