@@ -52,9 +52,9 @@
  *   Use to specify a colour parameter. The optional **alpha** parameter will
  *   display a slider allowing the colour's alpha channel to be changed,
  *   otherwise it will always set to 0xFF.
- * [slider,min:MINVAL,max:MAXVAL]
+ * [slider,min:MINVAL,max:MAXVAL,step:STEP]
  *   Use a slider element to set a value between **MINVAL** and **MAXVAL**
- *   uniformly distributed.
+ *   uniformly distributed, or with a custom interval using **STEP**.
  * [position,mode:MODE,layer:LAYER,y:YPARAM]
  *   Use this annotation on an x-variable, naming the corresponding y
  *   **variable** as **YPARAM**. **MODE** can be "world" or "hud", defaulting
