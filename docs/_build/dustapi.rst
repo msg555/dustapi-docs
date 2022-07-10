@@ -1186,6 +1186,14 @@ class scene
     will return an empty string.
     
 
+  .. _method-scene-clear_ghosts:
+
+  \ **void**\  *clear_ghosts*\ ()
+
+    Clear any ghosts currently loaded. This is meant only to help hide replays
+    during special events.
+    
+
 .. _class-rectangle:
 
 class rectangle
