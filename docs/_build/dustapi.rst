@@ -3040,11 +3040,20 @@ class hitbox
 
   \ **int**\  *hit_outcome*\ ()
 
-    See the hit_outcomes enumeration for possible values. 
+    See the hit_outcomes enumeration for possible values.
+    This may change after being triggered (e.g. when the player changes state),
+    in which case \ :ref:`triggered_outcome<method-hitbox-triggered_outcome>`\  can be used. 
 
   .. _method-hitbox-hit_outcome-2:
 
   \ **void**\  *hit_outcome*\ (\ **int**\  hit_outcome)
+
+  .. _method-hitbox-triggered_outcome:
+
+  \ **int**\  *triggered_outcome*\ ()
+
+    Returns the outcome when this hitbox triggered, or ho_unresolved if it has
+    not triggered yet. 
 
   .. _method-hitbox-on_hit_filter_callback:
 
