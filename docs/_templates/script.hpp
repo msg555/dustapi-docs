@@ -1,6 +1,6 @@
 /* STARTAPI */
 /* The entry point - each script must have a single class named *script*. */
-class api_script {
+class script {
   /* Initialize any state variables here. */
   script();
 
@@ -20,14 +20,14 @@ class api_script {
 
   /* Called before the entity list to process has been constructed as an
    * opportunity to move the camera. Moving the camera in
-   * :ref:`step()<method-script-step>` will be too late to affect what segments
+   * :method:`script.step` will be too late to affect what segments
    * and entities are loaded and stepped.
    */
   void move_cameras();
 
   /* Called every frame (60fps) prior to all entities having their step
    * function called. The list of entities going to be stepped can be accessed
-   * with ``entity_by_index(i)`` for ``0 <= i < entities``.
+   * with :func:`entity_by_index`(i) for ``0 <= i < entities``.
    */
   void step(int entities);
 
@@ -72,7 +72,7 @@ class api_script {
   void spawn_player(message@ msg);
 
   /* Used to set custom sprite data from embedded values. See
-   * :ref:`has_embed_value()<method-has_embed_value>` for more details on how
+   * :func:`has_embed_value`() for more details on how
    * to embed a value. Sprites should be in PNG format.
    *
    * For each sprite you wish to create add a string to the message with the
