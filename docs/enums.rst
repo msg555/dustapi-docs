@@ -217,4 +217,20 @@ enum side_types
     side_right = 1,
     side_roof = 2,
     side_ground = 3,
-  }
+  };
+
+enum filth_types
+################
+
+::
+
+  enum filth_types {
+    filth_type_clean = 0,
+    filth_type_dust = 1,
+    filth_type_leaf = 2,
+    filth_type_trash = 3,
+    filth_type_slime = 4,
+    filth_type_poly = 5,
+    filth_type_none = 6,
+    filth_type_default = 7,
+  };
