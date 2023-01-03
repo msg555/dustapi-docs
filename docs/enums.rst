@@ -234,3 +234,17 @@ enum filth_types
     filth_type_none = 6,
     filth_type_default = 7,
   };
+
+enum node_types
+###############
+
+::
+
+  enum node_types {
+    nt_temp = 0,
+    nt_normal = 1,
+    nt_detach = 2,
+    nt_connect = 3,
+    nt_interest = 4,
+    nt_force_connect = 5,
+  }
