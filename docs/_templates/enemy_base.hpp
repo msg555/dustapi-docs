@@ -3,7 +3,7 @@
  * 
  * See :ref:`trigger_base<class trigger_base>` documentation for discussion on
  * member variables. */
-class api_enemy_base {
+class enemy_base {
   /* Setup initial variables. An empty constructor must be present (unless
    * there are no constructors at all in which a default one is implied) for
    * enemies to be usable. */
