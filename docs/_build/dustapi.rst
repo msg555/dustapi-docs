@@ -5192,6 +5192,20 @@ class input_api
       :0x400: middle release
     
 
+  .. _method-input_api-gvb_to_vk:
+
+  \ **int**\  *gvb_to_vk*\ (const \ **int**\  gvb)
+
+    Converts the given global virtual button to a virtual key code.
+    Returns -1 if gvb is not a valid button. 
+
+  .. _method-input_api-vk_to_gvb:
+
+  \ **int**\  *vk_to_gvb*\ (const \ **int**\  vk)
+
+    Converts the given virtual key code to a global virtual button.
+    Returns -1 if the given key is not mapped to a virtual button. 
+
   .. _method-input_api-key_check_vk:
 
   \ **bool**\  *key_check_vk*\ (\ **int**\  vk)
