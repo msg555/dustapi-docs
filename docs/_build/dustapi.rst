@@ -5986,6 +5986,12 @@ class input_api
 
     Returns true if the key was released this frame. 
 
+  .. _method-input_api-key_check_double:
+
+  \ **bool**\  *key_check_double*\ (\ **int**\  vk)
+
+    Returns true if the key was double tapped. 
+
   .. _method-input_api-key_check_gvb:
 
   \ **bool**\  *key_check_gvb*\ (\ **int**\  gvb)
