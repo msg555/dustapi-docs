@@ -3767,10 +3767,6 @@ class scripttrigger
 
     Returns the class name of this trigger within its script. 
 
-  .. _method-scripttrigger-editor_selected:
-
-  \ **bool**\  *editor_selected*\ ()
-
   .. _method-scripttrigger-radius:
 
   \ **int**\  *radius*\ ()
@@ -3851,6 +3847,24 @@ class scripttrigger
 
     Use after changing persistent variables via script to update values in the trigger script panel. 
 
+  .. _method-scripttrigger-editor_selected:
+
+  \ **bool**\  *editor_selected*\ ()
+
+  .. _method-scripttrigger-editor_triggers_visible:
+
+  \ **bool**\  *editor_triggers_visible*\ ()
+
+    Convenience for checking if triggers are visible in the editor
+    without needing an editor instance. 
+
+  .. _method-scripttrigger-editor_cameras_visible:
+
+  \ **bool**\  *editor_cameras_visible*\ ()
+
+    Convenience for checking if cameras are visible in the editor
+    without needing an editor instance. 
+
 .. _class-scriptenemy:
 
 class scriptenemy
@@ -3890,7 +3904,22 @@ class scriptenemy
 
   \ **void**\  *editor_sync_vars_menu*\ ()
 
-    Use after changing persistent variables via script to update values in the enemy script panel. 
+    Use after changing persistent variables via script to update values in the
+    enemy script panel. 
+
+  .. _method-scriptenemy-editor_triggers_visible:
+
+  \ **bool**\  *editor_triggers_visible*\ ()
+
+    Convenience for checking if triggers are visible in the editor
+    without needing an editor instance. 
+
+  .. _method-scriptenemy-editor_cameras_visible:
+
+  \ **bool**\  *editor_cameras_visible*\ ()
+
+    Convenience for checking if cameras are visible in the editor
+    without needing an editor instance. 
 
 .. _class-sprites:
 
