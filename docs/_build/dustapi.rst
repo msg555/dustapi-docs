@@ -5077,6 +5077,20 @@ class editor_api
 
     Sets the selected tile set, index, and palette used by the tile tool. 
 
+  .. _method-editor_api-get_prop:
+
+  \ **void**\  *get_prop*\ (\ **int**\  &out prop_set, \ **int**\  &out prop_group, \ **int**\  &out prop_index, \ **int**\  &out prop_palette)
+
+    Return the selected prop set, group, index, and palette used by the
+    prop tool. 
+
+  .. _method-editor_api-set_prop:
+
+  \ **void**\  *set_prop*\ (\ **int**\  prop_set, \ **int**\  prop_group, \ **int**\  prop_index, \ **int**\  prop_palette)
+
+    Sets the selected prop set, group, index, and palette used by the
+    prop tool. 
+
 .. _class-input_api:
 
 class input_api
