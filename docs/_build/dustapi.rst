@@ -46,7 +46,7 @@
   object never needs to be reloaded.
   
   Arguments:
-    player: The (0-indexed) player index to get the camera of.
+    :player: The (0-indexed) player index to get the camera of.
   
 
 .. _method-num_cameras:
@@ -664,10 +664,10 @@ class scene
       `8 <= step_size <= load_size <= 256`
     
     Arguments:
-      int load_size: Controls when entities are loaded into memory and
-      written back to persist.
+      :load_size: Controls when entities are loaded into memory and
+        written back to persist.
     
-      int step_size: Controls when an entitie's logic will be executed.
+      :step_size: Controls when an entitie's logic will be executed.
     
 
   .. _method-scene-combo_break_count:
@@ -1002,18 +1002,14 @@ class scene
     table for what button each bit corresponds to.
     
     Arguments:
-      player: the player to get input for
+      :player: the player to get input for
     
     Bitmask:
-      1: wheel up
-    
-      2: wheel down
-    
-      4: left click
-    
-      8: right click
-    
-      16: middle click
+      :1: wheel up
+      :2: wheel down
+      :4: left click
+      :8: right click
+      :16: middle click
     
 
   .. _method-scene-end_level:
@@ -2303,37 +2299,30 @@ class controllable
     Setting `base_obj` to null will clear the handler.
     
     Arguments:
-      base_obj:
-        The object the callback will be invoked on.
+      :base_obj: The object the callback will be invoked on.
     
-      callback_method:
-        The name of the function to invoke. The callback
-        should have the signature: ::
+      :callback_method: The name of the function to invoke.
+      :arg: An opaque value to be passed back to the callback when invoked.
     
-          void func_name(controllable@ ec, tilecollision@ tc, int side, bool moving, float snap_offset, int arg)
+    The callback should have the signature: ::
     
-        Callback Arguments:
-          ec: The entity to check collisions for
+      void func_name(controllable@ ec, tilecollision@ tc, int side, bool moving, float snap_offset, int arg)
     
-          tc: The tile collision object to write results to
+    Callback Arguments:
+      :ec: The entity to check collisions for
+      :tc: The tile collision object to write results to
+      :side: which surface type to check for collisions, see the `side_types` enum.
+      :moving: Indicates if the collision should compensate for movement over the last subframe.
+      :snap_offset: Indicates an extra offset to look for collisions used in e.g. snap jumps/dashes
+      :arg: The same value that was passed when registering the callback.
     
-          side: which surface type to check for collisions, see the `side_types` enum.
+    Use the provided tilecollision object to return the results of the custom
+    collision.
     
-          moving: Indicates if the collision should compensate for movement over the last subframe.
-    
-          snap_offset: Indicates an extra offset to look for collisions used in e.g. snap jumps/dashes
-    
-          arg: The same value that was passed when registering the callback.
-    
-      arg:
-        An opaque value to be passed back to the callback when invoked.
-    
-    Use the provided tilecollision object to return the results of the custom collision:
-      hit(): Set to true to indicate a collision happened
-    
-      type(): Sets the surface angle of the collision (angle() is not used)
-    
-      hit_x/y(): The position of the collision
+    Collision Results:
+      :hit(): Set to true to indicate a collision happened
+      :type(): Sets the surface angle of the collision (angle() is not used)
+      :hit_x/y(): The position of the collision
     
     Calling :ref:`controllable::check_collision<method-controllable-check_collision>` can be used to
     perform the default tile collision handling when needed.
@@ -4298,17 +4287,18 @@ class input_api
     Returns the mouse state as a bitmask. The
     bits correspond to the following button states:
     
-    0x1: wheel up
-    0x2: wheel down
-    0x4: left down
-    0x8: right down
-    0x10: middle down
-    0x20: left pressed
-    0x40: right pressed
-    0x80: middle pressed
-    0x100: left release
-    0x200: right release
-    0x400: middle release
+    Bitmask:
+      :0x1: wheel up
+      :0x2: wheel down
+      :0x4: left down
+      :0x8: right down
+      :0x10: middle down
+      :0x20: left pressed
+      :0x40: right pressed
+      :0x80: middle pressed
+      :0x100: left release
+      :0x200: right release
+      :0x400: middle release
     
 
   .. _method-input_api-key_check_vk:
