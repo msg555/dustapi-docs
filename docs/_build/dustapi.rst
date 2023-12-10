@@ -2017,7 +2017,7 @@ class collision
 
   \ **void**\  *rectangle*\ (\ **float**\  top, \ **float**\  bottom, \ **float**\  left, \ **float**\  right)
 
-    Access the hitbox of the collisio. 
+    Access the hitbox of the collision. 
 
   .. _method-collision-rectangle-2:
 
