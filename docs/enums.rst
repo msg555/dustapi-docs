@@ -140,6 +140,7 @@ enum controller_modes
     controller_mode_ispressed = 1,
     controller_mode_posedge = 2,
     controller_mode_negedge = 3,
+    controller_mode_advanced = 4,
   };
 
 enum hit_outcomes
