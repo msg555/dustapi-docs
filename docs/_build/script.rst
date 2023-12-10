@@ -4,6 +4,13 @@ class script
 ############
   The entry point - each script must have a single class named *script*. 
 
+  .. _method-script-on_video_settings_change:
+
+  \ **void**\  *on_video_settings_change*\ ()
+
+    Called when the main menu closes after any of the video settings have been
+    changed. 
+
   .. _method-script-checkpoint_save:
 
   \ **void**\  *checkpoint_save*\ ()
@@ -93,6 +100,14 @@ class script
 
     Do any drawing required by your script. This function should have no side
     effects outside of the draw calls it makes. 
+
+  .. _method-script-on_editor_start:
+
+  \ **void**\  *on_editor_start*\ ()
+
+    Called when the editor is loaded, but after sprites and sounds have been
+    built, and after persisted fields have been loaded.
+    Called for both level and plugin scripts. 
 
   .. _method-script-editor_step:
 

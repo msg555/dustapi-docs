@@ -4,6 +4,10 @@ class script {
   /* Initialize any state variables here. */
   script();
 
+  /* Called when the main menu closes after any of the video settings have been
+   * changed. */
+  void on_video_settings_change();
+
   /* Called just prior to a checkpoint being saved. */
   void checkpoint_save();
 
@@ -57,6 +61,11 @@ class script {
   /* Do any drawing required by your script. This function should have no side
    * effects outside of the draw calls it makes. */
   void draw(float sub_frame);
+
+  /* Called when the editor is loaded, but after sprites and sounds have been
+   * built, and after persisted fields have been loaded.  
+   * Called for both level and plugin scripts. */
+  void on_editor_start();
 
   /* Called each frame while in the editor instead of step/step_post. */
   void editor_step();

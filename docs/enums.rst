@@ -247,4 +247,16 @@ enum node_types
     nt_connect = 3,
     nt_interest = 4,
     nt_force_connect = 5,
-  }
+  };
+
+enum script_fx_level
+###############
+
+::
+
+  enum script_fx_level {
+    script_fx_level_off=0,
+    script_fx_level_low=1,
+    script_fx_level_medium=2,
+    script_fx_level_high=3,
+  };
