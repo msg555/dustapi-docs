@@ -48,6 +48,8 @@ class trigger_base
   [option,VALUE1:OPTION1,VALUE2:OPTION2,...]
     Use a dropdown option menu. If the user selects **OPTIONk** the
     variable's value will be set to **VALUEk**.
+    For integer types unspecified values will auto increment
+    e.g. `A,B,10:C,D` is equivalent to `0:A,1:B,10:C,11:D`
   [angle,MODE]
     Use to set an angle. **MODE** can be set to 'rad' or 'radian' to use
     radians otherwise it defaults to degrees.
