@@ -1610,6 +1610,19 @@ class camera
 
     Returns true if a script position is set. 
 
+  .. _method-camera-force_disconnect:
+
+  \ **void**\  *force_disconnect*\ ()
+
+    Forcibly disconnect the camera from the current path. 
+
+  .. _method-camera-try_connect:
+
+  \ **bool**\  *try_connect*\ (\ :ref:`entity<class-entity>`\ @ cam_node)
+
+    Attempts to connect to the given camera node.
+    Returns true on success. 
+
   .. _method-camera-editor_zoom:
 
   \ **float**\  *editor_zoom*\ ()
