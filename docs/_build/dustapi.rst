@@ -2803,6 +2803,14 @@ class controllable
 
   \ **void**\  *skid_fric*\ (\ **float**\  skid_fric)
 
+  .. _method-controllable-fric:
+
+  \ **float**\  *fric*\ ()
+
+  .. _method-controllable-fric-2:
+
+  \ **void**\  *fric*\ (\ **float**\  fric)
+
   .. _method-controllable-set_ground_angles:
 
   \ **void**\  *set_ground_angles*\ (\ **int**\  slope_min, \ **int**\  slope_max, \ **int**\  slant_min, \ **int**\  slant_max)
