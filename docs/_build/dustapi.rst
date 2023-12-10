@@ -4945,6 +4945,19 @@ class editor_api
 
     Returns true if the given layer is visible and not locked. 
 
+  .. _method-editor_api-triggers_visible:
+
+  \ **bool**\  *triggers_visible*\ ()
+
+    Returns false if triggers are hidden in the editor. Triggers should check
+    this during `editor_draw` to disable any editor related drawing. 
+
+  .. _method-editor_api-cameras_visible:
+
+  \ **bool**\  *cameras_visible*\ ()
+
+    Returns false if cameras are hidden in the editor. 
+
   .. _method-editor_api-get_selected_trigger:
 
   \ :ref:`entity<class-entity>`\ @ *get_selected_trigger*\ ()
