@@ -2763,6 +2763,46 @@ class controllable
 
   \ **int**\  *right_surface_angle*\ ()
 
+  .. _method-controllable-run_max:
+
+  \ **float**\  *run_max*\ ()
+
+  .. _method-controllable-run_max-2:
+
+  \ **void**\  *run_max*\ (\ **float**\  run_max)
+
+  .. _method-controllable-run_start:
+
+  \ **float**\  *run_start*\ ()
+
+  .. _method-controllable-run_start-2:
+
+  \ **void**\  *run_start*\ (\ **float**\  run_start)
+
+  .. _method-controllable-run_accel:
+
+  \ **float**\  *run_accel*\ ()
+
+  .. _method-controllable-run_accel-2:
+
+  \ **void**\  *run_accel*\ (\ **float**\  run_accel)
+
+  .. _method-controllable-idle_fric:
+
+  \ **float**\  *idle_fric*\ ()
+
+  .. _method-controllable-idle_fric-2:
+
+  \ **void**\  *idle_fric*\ (\ **float**\  idle_fric)
+
+  .. _method-controllable-skid_fric:
+
+  \ **float**\  *skid_fric*\ ()
+
+  .. _method-controllable-skid_fric-2:
+
+  \ **void**\  *skid_fric*\ (\ **float**\  skid_fric)
+
   .. _method-controllable-set_ground_angles:
 
   \ **void**\  *set_ground_angles*\ (\ **int**\  slope_min, \ **int**\  slope_max, \ **int**\  slant_min, \ **int**\  slant_max)
@@ -2926,30 +2966,6 @@ class dustman
 #############
   Inherits: `controllable <#class-controllable>`_
 
-  .. _method-dustman-run_max:
-
-  \ **float**\  *run_max*\ ()
-
-  .. _method-dustman-run_max-2:
-
-  \ **void**\  *run_max*\ (\ **float**\  run_max)
-
-  .. _method-dustman-run_start:
-
-  \ **float**\  *run_start*\ ()
-
-  .. _method-dustman-run_start-2:
-
-  \ **void**\  *run_start*\ (\ **float**\  run_start)
-
-  .. _method-dustman-run_accel:
-
-  \ **float**\  *run_accel*\ ()
-
-  .. _method-dustman-run_accel-2:
-
-  \ **void**\  *run_accel*\ (\ **float**\  run_accel)
-
   .. _method-dustman-run_accel_over:
 
   \ **float**\  *run_accel_over*\ ()
@@ -2981,22 +2997,6 @@ class dustman
   .. _method-dustman-slope_max-2:
 
   \ **void**\  *slope_max*\ (\ **float**\  slope_max)
-
-  .. _method-dustman-idle_fric:
-
-  \ **float**\  *idle_fric*\ ()
-
-  .. _method-dustman-idle_fric-2:
-
-  \ **void**\  *idle_fric*\ (\ **float**\  idle_fric)
-
-  .. _method-dustman-skid_fric:
-
-  \ **float**\  *skid_fric*\ ()
-
-  .. _method-dustman-skid_fric-2:
-
-  \ **void**\  *skid_fric*\ (\ **float**\  skid_fric)
 
   .. _method-dustman-land_fric:
 
