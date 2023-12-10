@@ -16,6 +16,9 @@ help:
 
 preprocess: ../source/dustapi.hpp
 	mkdir -p _build
+	python3 preprocess_docs.py < _templates/script.hpp > _build/script.rst
+	python3 preprocess_docs.py < _templates/trigger_base.hpp > _build/trigger_base.rst
+	python3 preprocess_docs.py < _templates/enemy_base.hpp > _build/enemy_base.rst
 	python3 preprocess_docs.py < ../source/dustapi.hpp > _build/dustapi.rst
 
 html:
