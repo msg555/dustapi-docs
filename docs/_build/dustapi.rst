@@ -1539,6 +1539,77 @@ class camera
 
   \ **void**\  *screen_width*\ (\ **float**\  screen_width)
 
+  .. _method-camera-set_lookahead:
+
+  \ **void**\  *set_lookahead*\ (\ **float**\  x, \ **float**\  y)
+
+    Controls how far ahead the camera looks as a multiplier of the
+    puppet velocity. Defaults to (1, 1)
+    This value is saved/loaded with checkpoints. 
+
+  .. _method-camera-get_lookahead:
+
+  \ **void**\  *get_lookahead*\ (\ **float**\  &out x, \ **float**\  &out y)
+
+  .. _method-camera-set_path_lookahead:
+
+  \ **void**\  *set_path_lookahead*\ (\ **float**\  x, \ **float**\  y)
+
+    Controls how far ahead the camera looks based on the puppet velocity
+    when attached to a camera path.
+    Higher values result in less of an effect. Defaults to (5, 10)
+    This value is saved/loaded with checkpoints. 
+
+  .. _method-camera-get_path_lookahead:
+
+  \ **void**\  *get_path_lookahead*\ (\ **float**\  &out x, \ **float**\  &out y)
+
+  .. _method-camera-break_distance:
+
+  \ **void**\  *break_distance*\ (\ **float**\  distance)
+
+    Controls how far outside of the screen the player must be to break camera
+    as a multiplier of the screen size.
+    Set to 1 for normal behaviour and 0 to disable.
+    This value is saved/loaded with checkpoints. 
+
+  .. _method-camera-break_distance-2:
+
+  \ **float**\  *break_distance*\ ()
+
+  .. _method-camera-set_script_speed:
+
+  \ **void**\  *set_script_speed*\ (\ **float**\  x, \ **float**\  y)
+
+    A custom speed added to the camera puppet speed. 
+
+  .. _method-camera-get_script_speed:
+
+  \ **void**\  *get_script_speed*\ (\ **float**\  &out x, \ **float**\  &out y)
+
+  .. _method-camera-set_script_position:
+
+  \ **void**\  *set_script_position*\ (\ **float**\  x, \ **float**\  y)
+
+    If set the camera will target this position instead of the puppet
+    position. 
+
+  .. _method-camera-get_script_position:
+
+  \ **void**\  *get_script_position*\ (\ **float**\  &out x, \ **float**\  &out y)
+
+  .. _method-camera-clear_script_position:
+
+  \ **void**\  *clear_script_position*\ ()
+
+    Resets the script position, making the camera target the puppet again. 
+
+  .. _method-camera-has_script_position:
+
+  \ **bool**\  *has_script_position*\ ()
+
+    Returns true if a script position is set. 
+
   .. _method-camera-editor_zoom:
 
   \ **float**\  *editor_zoom*\ ()
