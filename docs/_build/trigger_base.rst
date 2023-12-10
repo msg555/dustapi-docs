@@ -37,7 +37,7 @@ class trigger_base
     type select menu.
   [label:**TEXT**]
     Use **TEXT** for the variables label instead of the variable's name.
-  [tooltip:**TEXT**,delay:DELAY,font:STRING,size:INT,colour/color:COLOUR]
+  [tooltip:**TEXT**,delay:DELAY,font:STRING,size:INT,colour/color:COLOUR,scale:FLOAT]
     Will display the tooltip **TEXT** after **DELAY** frames (default 20).
     Fields with a tooltip will be highlighted in blue.
     Optionaly the font, size, and colour can be set. For a list of
