@@ -68,6 +68,12 @@ class script {
   /* Called when one of this script's variables is modified in the editor */
   void editor_var_changed(var_info@ info);
 
+  /* Called when an entity is added to the scene in the editor. */
+  void editor_entity_added(entity@ e);
+
+  /* Called when an entity is removed from the scene in the editor. */
+  void editor_entity_remove(entity@ e);
+
   /* Spawn a player controllable. The following parameters will be set
    * in the passed message:
    * 

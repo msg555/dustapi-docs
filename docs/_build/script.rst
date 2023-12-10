@@ -116,6 +116,18 @@ class script
 
     Called when one of this script's variables is modified in the editor 
 
+  .. _method-script-editor_entity_added:
+
+  \ **void**\  *editor_entity_added*\ (\ :ref:`entity<class-entity>`\ @ e)
+
+    Called when an entity is added to the scene in the editor. 
+
+  .. _method-script-editor_entity_remove:
+
+  \ **void**\  *editor_entity_remove*\ (\ :ref:`entity<class-entity>`\ @ e)
+
+    Called when an entity is removed from the scene in the editor. 
+
   .. _method-script-spawn_player:
 
   \ **void**\  *spawn_player*\ (\ :ref:`message<class-message>`\ @ msg)
