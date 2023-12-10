@@ -18,5 +18,5 @@ preprocess: ../source/dustapi.hpp
 	mkdir -p _build
 	python3 preprocess_docs.py < ../source/dustapi.hpp > _build/dustapi.rst
 
-html: preprocess
+html:
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
