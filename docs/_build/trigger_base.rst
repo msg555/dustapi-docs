@@ -60,17 +60,23 @@ class trigger_base
   [slider,min:MINVAL,max:MAXVAL,step:STEP]
     Use a slider element to set a value between **MINVAL** and **MAXVAL**
     uniformly distributed, or with a custom interval using **STEP**.
-  [position,mode:MODE,layer:LAYER,y:YPARAM]
+  [position,mode:MODE,y:YPARAM]
     Use this annotation on an x-variable, naming the corresponding y
     **variable** as **YPARAM**.
+    Use `Shift`, `Control`, and `Alt` to snap coordinates to increments 48, 24, and 12
+    respectively.
   
-    * **MODE** Can be ``world`` (default) or ``hud``.
-    * **LAYER** The layer to calculate the coordinates of from the user's mouse.
+    * **mode** Can be ``world`` (default) or ``hud``.
+    * **layer** The layer to calculate the coordinates of from the user's mouse.
   
-      * A sublayer can optionally be specified with the format `LAYER.SUBLAYER`
+      * If **LAYER** is set to ``selected``, the currently selected layer in the editor will be
+        used.
+      * A sublayer can optionally be specified with the format ``LAYER.SUBLAYER``
       * **LAYER** or **SUBLAYER** can point to a variable by prefixing with an equal sign, e.g.
-        ``=layer_var_name.10`` will read the layer value from a variable called ``layer_var``, and use
-        a value of 10 for the sublayer.
+        ``=layer_var_name.10`` will read the layer value from a variable called ``layer_var``,
+        and use a value of 10 for the sublayer.
+    * **snap** If set forces a specific increment to snap the coordinates to.
+    * **round** Can be ``down``/``-1`` or ``up``/``1`` to round down or up when snapping.
   [entity,TYPE,TYPE,...]
     | Use to select an entity id with the mouse.
     | An optional list of allowed types can be given. If no **TYPE** type is
