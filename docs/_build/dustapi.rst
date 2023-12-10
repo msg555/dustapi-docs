@@ -827,22 +827,65 @@ class scene
 
   \ **bool**\  *layer_visible*\ (\ **uint**\  layer)
 
-    Access the visibility of each layer. 
+    Access the visibility of each layer.
+    Note that this just returns sub-layer 0 if the layer has different sublayer
+    values. 
 
   .. _method-scene-layer_visible-2:
 
   \ **void**\  *layer_visible*\ (\ **uint**\  layer, \ **bool**\  visible)
+
+    Sets the visibility of all sub layers for this layer. 
+
+  .. _method-scene-sub_layer_visible:
+
+  \ **bool**\  *sub_layer_visible*\ (\ **uint**\  layer, \ **uint**\  sub_layer)
+
+    Access the visibility of each sub layer.
+    Note that hiding sub layer 10 also prevents sublayers 11-15 from rendering,
+    so changing it is not recommended for the moment as the behaviour may
+    change in the future. 
+
+  .. _method-scene-sub_layer_visible-2:
+
+  \ **void**\  *sub_layer_visible*\ (\ **uint**\  layer, \ **uint**\  sub_layer, \ **bool**\  visible)
 
   .. _method-scene-layer_scale:
 
   \ **float**\  *layer_scale*\ (\ **uint**\  layer)
 
     Access the scaling factor of the layer. 1.0 is the standard foreground
-    scale with lower values being used for the background. 
+    scale with lower values being used for the background.
+    Note that this just returns sub-layer 0 if the layer has different sublayer
+    values. 
 
   .. _method-scene-layer_scale-2:
 
   \ **void**\  *layer_scale*\ (\ **uint**\  layer, \ **float**\  scale)
+
+    Sets the scale of all sub layers for this layer. 
+
+  .. _method-scene-layer_scale_reset:
+
+  \ **void**\  *layer_scale_reset*\ (\ **uint**\  layer)
+
+    Resets the scale for all sub layer on the given to its default value. 
+
+  .. _method-scene-sub_layer_scale:
+
+  \ **float**\  *sub_layer_scale*\ (\ **uint**\  layer, \ **uint**\  sub_layer)
+
+    Access the scaling factor of the sub layer. 
+
+  .. _method-scene-sub_layer_scale-2:
+
+  \ **void**\  *sub_layer_scale*\ (\ **uint**\  layer, \ **uint**\  sub_layer, \ **float**\  scale)
+
+  .. _method-scene-sub_layer_scale_reset:
+
+  \ **void**\  *sub_layer_scale_reset*\ (\ **uint**\  layer, \ **uint**\  sub_layer)
+
+    Resets the scale for the given sub layer to its default value. 
 
   .. _method-scene-reset_layer_order:
 
@@ -1088,6 +1131,13 @@ class scene
 
     Returns the y coordinate of the mouse for the given player's camera in the
     given layer. 
+
+  .. _method-scene-mouse_world:
+
+  \ **void**\  *mouse_world*\ (\ **int**\  player, \ **int**\  layer, \ **int**\  sub_layer, \ **float**\  &out x, \ **float**\  &out y)
+
+    Returns the coordinates of the mouse for the given player's camera in the
+    given layer and sublayer. 
 
   .. _method-scene-hud_screen_width:
 
@@ -5689,6 +5739,12 @@ class editor_api
 
     Returns true if the given layer is visible and not locked. 
 
+  .. _method-editor_api-check_layer_filter-2:
+
+  \ **bool**\  *check_layer_filter*\ (\ **int**\  layer, \ **int**\  sub_layer)
+
+    Returns true if the given sublayer is visible and not locked. 
+
   .. _method-editor_api-triggers_visible:
 
   \ **bool**\  *triggers_visible*\ ()
@@ -5915,6 +5971,12 @@ class input_api
   \ **float**\  *mouse_y_world*\ (\ **int**\  layer)
 
     Returns the y coordinate of the mouse for the given layer. 
+
+  .. _method-input_api-mouse_world:
+
+  \ **void**\  *mouse_world*\ (\ **int**\  layer, \ **int**\  sub_layer, \ **float**\  &out x, \ **float**\  &out y)
+
+    Returns the coordinates of the mouse for the given layer and sublayer. 
 
   .. _method-input_api-screen_width:
 
