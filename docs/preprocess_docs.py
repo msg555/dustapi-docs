@@ -33,7 +33,9 @@ type_identifier <<= Group(
     Opt("@")("ref")
 )
 
-single_arg = Group(Opt(Literal("const"))("const") + type_identifier("arg_type") + Opt(ref_type)("ref_type") + Opt(identifier("arg_name")))
+single_arg = Group(Opt(Literal("const"))("const") + type_identifier("arg_type") +
+                   Opt(ref_type)("ref_type") + Opt(identifier("arg_name")) +
+                   Opt("=" + SkipTo(Literal(",")))("default"))
 arg_list = Opt(delimited_list(single_arg)("args"))
 
 comment = c_style_comment | dbl_slash_comment
