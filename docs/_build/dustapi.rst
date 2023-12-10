@@ -788,6 +788,19 @@ class scene
 
     Remove an entity from the scene. 
 
+  .. _method-scene-get_emitter_id:
+
+  \ **int**\  *get_emitter_id*\ (\ **string**\  name)
+
+    Returns the emitter id for the given name, or -1 if it does not exist. 
+
+  .. _method-scene-add_particle_burst:
+
+  \ **void**\  *add_particle_burst*\ (\ **uint**\  id, \ **float**\  x, \ **float**\  y, \ **float**\  w, \ **float**\  h, \ **uint**\  layer, \ **uint**\  sub_layer)
+
+    Create a particle burst. If the emitter is not a burst emitter this does
+    nothing. 
+
   .. _method-scene-layer_visible:
 
   \ **bool**\  *layer_visible*\ (\ **uint**\  layer)
