@@ -75,8 +75,9 @@ class trigger_base
       * **LAYER** or **SUBLAYER** can point to a variable by prefixing with an equal sign, e.g.
         ``=layer_var_name.10`` will read the layer value from a variable called ``layer_var``,
         and use a value of 10 for the sublayer.
-    * **snap** If set forces a specific increment to snap the coordinates to.
-    * **round** Can be ``down``/``-1`` or ``up``/``1`` to round down or up when snapping.
+    * **snap:INCREMENT** If set forces a specific increment to snap the coordinates to.
+    * **round:TYPE** Can be ``down``/``-1`` or ``up``/``1`` to round down or up when snapping.
+    * **tiles** If present will return the tile index under the mouse.
   [entity,TYPE,TYPE,...]
     | Use to select an entity id with the mouse.
     | An optional list of allowed types can be given. If no **TYPE** type is
