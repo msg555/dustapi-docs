@@ -115,6 +115,14 @@ class trigger_base
   the trigger to be usable.
   
 
+  .. _method-trigger_base-editor_init:
+
+  \ **void**\  *editor_init*\ (\ :ref:`script<class-script>`\ @ s, \ :ref:`scripttrigger<class-scripttrigger>`\ @ self)
+
+    Called only in the editor when a type is selected, before before init.
+    Can be used to initialise persistent variables which require access to the
+    script or script trigger instance. 
+
   .. _method-trigger_base-init:
 
   \ **void**\  *init*\ (\ :ref:`script<class-script>`\ @ s, \ :ref:`scripttrigger<class-scripttrigger>`\ @ self)

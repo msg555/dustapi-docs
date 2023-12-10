@@ -7,6 +7,14 @@ class enemy_base
   See :ref:`trigger_base<class trigger_base>` documentation for discussion on
   member variables. 
 
+  .. _method-enemy_base-editor_init:
+
+  \ **void**\  *editor_init*\ (\ :ref:`script<class-script>`\ @ s, \ :ref:`scriptenemy<class-scriptenemy>`\ @ self)
+
+    Called only in the editor when a type is selected, before before init.
+    Can be used to initialise persistent variables which require access to the
+    script or script enemy instance. 
+
   .. _method-enemy_base-init:
 
   \ **void**\  *init*\ (\ :ref:`script<class-script>`\ @ s, \ :ref:`scriptenemy<class-scriptenemy>`\ @ self)

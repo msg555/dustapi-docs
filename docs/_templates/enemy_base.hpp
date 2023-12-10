@@ -9,6 +9,11 @@ class enemy_base {
    * enemies to be usable. */
   enemy_base();
 
+  /* Called only in the editor when a type is selected, before before init.
+   * Can be used to initialise persistent variables which require access to the
+   * script or script enemy instance. */
+  void editor_init(script@ s, scriptenemy@ self);
+  
   /* Called after the enemy is constructed, passing the corresponding game
    * :ref:`scriptenemy<class scriptenemy>` handle. */
   void init(script@ s, scriptenemy@ self);

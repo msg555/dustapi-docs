@@ -112,6 +112,11 @@
  * the trigger to be usable.
  */
 class trigger_base {
+  /* Called only in the editor when a type is selected, before before init.
+   * Can be used to initialise persistent variables which require access to the
+   * script or script trigger instance. */
+  void editor_init(script@ s, scripttrigger@ self);
+  
   /* Called after the trigger is constructed, passing the corresponding game
    * :ref:`scripttrigger<class scripttrigger>` handle. */
   void init(script@ s, scripttrigger@ self);
