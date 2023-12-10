@@ -1584,11 +1584,7 @@ class camera
 
   \ **string**\  *camera_type*\ ()
 
-    Get the camera type.
-    
-      :`player`: Free camera.
-      :`test`: The camera is attached to a path.
-      :`script`: The camera is being controlled by script. 
+    Deprecated - use :ref:`camera::type<method-camera-type>` instead. 
 
   .. _method-camera-script_camera:
 

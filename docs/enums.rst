@@ -261,3 +261,16 @@ enum script_fx_level
     script_fx_level_medium=2,
     script_fx_level_high=3,
   };
+
+enum camera_types
+####################
+
+::
+
+  enum camera_types {
+    ct_player=0,
+    ct_path=1,
+    ct_editor=2,
+    ct_screen_shot=3,
+    ct_script=4,
+  }
