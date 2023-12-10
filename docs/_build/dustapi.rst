@@ -386,10 +386,11 @@ class scene
     Returns the `Script FX Level` video setting. This is a custom option scripts can
     use to enable/disable custom visuals to improve performance.
     Possible values are:
-      :0: - Off
-      :1: - Low
-      :2: - Medium
-      :3: - High (default) 
+    
+      :0: Off
+      :1: Low
+      :2: Medium
+      :3: High (default) 
 
   .. _method-scene-get_video_settings:
 
@@ -1455,10 +1456,10 @@ class tileinfo
     Each tile edge is represented by four bits. These are their meanings from
     least significant bit to most significant bit.
     
-    1 bit - indicates edge "priority"?
-    2 bit - whether to draw an edge cap on the left/top.
-    4 bit - whether to draw an edge cap on the right/bottom.
-    8 bit - indicates whether the edge has collision and can have filth.
+      :1 bit: indicates edge "priority"?
+      :2 bit: whether to draw an edge cap on the left/top.
+      :4 bit: whether to draw an edge cap on the right/bottom.
+      :8 bit: indicates whether the edge has collision and can have filth.
     
 
   .. _method-tileinfo-edge_top-2:
@@ -1515,9 +1516,9 @@ class tilefilth
     Each tile filth value indicates if and what type of filth or spikes are
     present on a given face of a tile.  These values should be:
     
-    0: no filth/spikes
-    1-5: dust, leaves, trash, slime, virtual filth
-    9-13: mansion spikes, forest spikes, cones, wires, virtual spikes
+      :0: no filth/spikes
+      :1-5: dust, leaves, trash, slime, virtual filth
+      :9-13: mansion spikes, forest spikes, cones, wires, virtual spikes
     
 
   .. _method-tilefilth-top-2:
@@ -1557,9 +1558,10 @@ class camera
   \ **string**\  *camera_type*\ ()
 
     Get the camera type.
-     | `player` - Free camera.
-     | `test` - The camera is attached to a path.
-     | `script` - The camera is being controlled by script. 
+    
+      :`player`: Free camera.
+      :`test`: The camera is attached to a path.
+      :`script`: The camera is being controlled by script. 
 
   .. _method-camera-script_camera:
 

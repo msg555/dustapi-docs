@@ -251,7 +251,7 @@ enum node_types
   };
 
 enum script_fx_level
-###############
+####################
 
 ::
 
