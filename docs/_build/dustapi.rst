@@ -3322,6 +3322,10 @@ class hitbox
 ############
   Inherits: `entity <#class-entity>`_
 
+  Note that for dust spread to work correctly after moving a hitbox
+  :ref:`base_rectangle<method-entity-base_rectangle>` must be called after
+  setting its position. 
+
   .. _method-hitbox-owner:
 
   \ :ref:`controllable<class-controllable>`\ @ *owner*\ ()
