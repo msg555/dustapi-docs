@@ -1623,19 +1623,19 @@ class camera
 
   \ **void**\  *input_y*\ (\ **int**\  &out up, \ **int**\  &out down)
 
-    Same as :ref:`<method-camera-input_x>`. 
+    Same as :ref:`camera::input_x<method-camera-input_x>`. 
 
   .. _method-camera-input_y-2:
 
   \ **int**\  *input_y*\ ()
 
-    Same as :ref:`<method-camera-input_x>` but for the up and down state. 
+    Same as :ref:`camera::input_x<method-camera-input_x>` but for the up and down state. 
 
   .. _method-camera-input_dash:
 
   \ **int**\  *input_dash*\ ()
 
-    Same as the left or right value of :ref:`<method-camera-input_x>`. 
+    Same as the left or right value of :ref:`camera::input_x<method-camera-input_x>`. 
 
   .. _method-camera-input_jump:
 

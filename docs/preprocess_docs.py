@@ -139,6 +139,7 @@ def emit_comment(out, indent, comment, ref_context=None):
                 raise ValueError("unexpected comment indentation")
 
             comment_line = comment_line[leading_spaces:]
+            comment_line = re.sub(r":ref:`<(.+)>`", insert_ref_label, comment_line)
         out.write(f"{indent}{mangle_refs(comment_line, ref_context=ref_context)}\n")
     out.write("\n")
 
@@ -179,6 +180,11 @@ def format_arg_list(arg_list):
         # Matches as a blank str when empty
         return ""
     return ", ".join(format_arg(arg) for arg in arg_list)
+
+
+def insert_ref_label(m):
+    label = "::".join(m.group(1).split("-")[1:])
+    return f":ref:`{label}<{m.group(1)}>`"
 
 
 def bite_func_name_chunk(name):
