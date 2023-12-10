@@ -2807,6 +2807,9 @@ class controllable
 
   \ **float**\  *fric*\ ()
 
+    Get/set the friction value used by some enemies to control air, turn,
+    or attack friction. 
+
   .. _method-controllable-fric-2:
 
   \ **void**\  *fric*\ (\ **float**\  fric)
@@ -3009,6 +3012,8 @@ class dustman
   .. _method-dustman-land_fric:
 
   \ **float**\  *land_fric*\ ()
+
+    Internally this value is not used anywhere. 
 
   .. _method-dustman-land_fric-2:
 
