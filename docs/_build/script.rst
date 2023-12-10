@@ -44,7 +44,7 @@ class script
 
   \ **void**\  *step*\ (\ **int**\  entities)
 
-    Called every frame (60fps) prior to all entities having their step
+    Called every game frame (usually 60fps) prior to all entities having their step
     function called. The list of entities going to be stepped can be accessed
     with \ :ref:`entity_by_index<func-entity_by_index>`\ (i) for ``0 <= i < entities``.
     
@@ -55,6 +55,16 @@ class script
 
     Like step except called after all entities have had their step functions
     called. 
+
+  .. _method-script-step_fixed:
+
+  \ **void**\  *step_fixed*\ ()
+
+    This function is called at 60fps even when the game menu is opened,
+    slowed during fade out, loading checkpoints, etc. This is still
+    subject to manipulation from pausing/changing game speed with frame
+    advance, however. This mirrors the behavior of the menu subsystem.
+    
 
   .. _method-script-pre_draw:
 

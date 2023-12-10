@@ -25,7 +25,7 @@ class script {
    */
   void move_cameras();
 
-  /* Called every frame (60fps) prior to all entities having their step
+  /* Called every game frame (usually 60fps) prior to all entities having their step
    * function called. The list of entities going to be stepped can be accessed
    * with :func:`entity_by_index`(i) for ``0 <= i < entities``.
    */
@@ -34,6 +34,13 @@ class script {
   /* Like step except called after all entities have had their step functions
    * called. */
   void step_post(int entities);
+
+  /* This function is called at 60fps even when the game menu is opened,
+   * slowed during fade out, loading checkpoints, etc. This is still
+   * subject to manipulation from pausing/changing game speed with frame
+   * advance, however. This mirrors the behavior of the menu subsystem.
+   */
+  void step_fixed();
 
   /* Setup the camera/transform prior to anything being drawn. Do not actually
    * draw anything here. */
