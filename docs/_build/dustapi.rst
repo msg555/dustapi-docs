@@ -1157,6 +1157,35 @@ class scene
 
   \ **void**\  *time_warp*\ (\ **float**\  time_warp)
 
+  .. _method-scene-user_id:
+
+  \ **int**\  *user_id*\ ()
+
+    Returns the user ID currently logged into the client. If the user has
+    not logged in successfully this will return 0. If the user has logged in as
+    guest this will return 19998. Otherwise this will be the user's account
+    ID as can be seen on dustkid.
+    
+
+  .. _method-scene-player_user_id:
+
+  \ **int**\  *player_user_id*\ (\ **uint**\  player)
+
+    Like :ref:`scene:user_id<method-scene-user_id>` except returns the user ID
+    attached to a specific player. This is relevant during gameplay where each
+    player may be controlled by a different client logged in with a different
+    ID.
+    
+
+  .. _method-scene-replay_username:
+
+  \ **string**\  *replay_username*\ ()
+
+    This returns the username field attached to the replay. This is the same
+    as the text displayed when watching a replay. If no replay is active this
+    will return an empty string.
+    
+
 .. _class-rectangle:
 
 class rectangle
