@@ -1932,6 +1932,12 @@ class camera
     sub_frame position. This accounts for camera animations and should
     match the sizes used by the game. 
 
+  .. _method-camera-get_layer_draw_rect-2:
+
+  \ **void**\  *get_layer_draw_rect*\ (\ **float**\  sub_frame, \ **int**\  layer, \ **int**\  sub_layer, \ **float**\  &out left, \ **float**\  &out top, \ **float**\  &out width, \ **float**\  &out height)
+
+    Get the size of the world layer and sub layer. 
+
   .. _method-camera-rotation:
 
   \ **float**\  *rotation*\ ()
