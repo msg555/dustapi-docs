@@ -4964,6 +4964,12 @@ class editor_api
 
     Returns the selected trigger. 
 
+  .. _method-editor_api-set_selected_trigger:
+
+  \ **void**\  *set_selected_trigger*\ (\ :ref:`entity<class-entity>`\ @ trigger)
+
+    Set the selected trigger. 
+
   .. _method-editor_api-get_selected_entity:
 
   \ :ref:`entity<class-entity>`\ @ *get_selected_entity*\ ()
@@ -5051,7 +5057,8 @@ class editor_api
 
   \ :ref:`entity<class-entity>`\ @ *selected_entity*\ (\ **uint**\  index)
 
-    Return the index-th selected entity or null if no entity exists at that index. 
+    Return the index-th selected entity or null if no entity exists at that
+    index. 
 
   .. _method-editor_api-selected_prop_count:
 
