@@ -4886,6 +4886,18 @@ class editor_api
 
     Sets the selected layer. 
 
+  .. _method-editor_api-get_selected_sub_layer:
+
+  \ **int**\  *get_selected_sub_layer*\ ()
+
+    Returns the selected sub layer for props. 
+
+  .. _method-editor_api-set_selected_sub_layer:
+
+  \ **void**\  *set_selected_sub_layer*\ (\ **int**\  sub_layer)
+
+    Sets the selected sub layer for props. 
+
   .. _method-editor_api-get_layer_visible:
 
   \ **bool**\  *get_layer_visible*\ (\ **int**\  layer)
