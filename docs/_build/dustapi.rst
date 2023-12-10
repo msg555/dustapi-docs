@@ -5065,6 +5065,18 @@ class editor_api
 
     Return the index-th selected prop or null if no prop exists at that index. 
 
+  .. _method-editor_api-get_tile_sprite:
+
+  \ **void**\  *get_tile_sprite*\ (\ **int**\  &out sprite_set, \ **int**\  &out sprite_tile, \ **int**\  &out sprite_palette)
+
+    Return the selected tile set, index, and palette used by the tile tool. 
+
+  .. _method-editor_api-set_tile_sprite:
+
+  \ **void**\  *set_tile_sprite*\ (\ **int**\  sprite_set, \ **int**\  sprite_tile, \ **int**\  sprite_palette)
+
+    Sets the selected tile set, index, and palette used by the tile tool. 
+
 .. _class-input_api:
 
 class input_api
