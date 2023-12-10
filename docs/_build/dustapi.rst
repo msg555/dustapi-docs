@@ -2175,6 +2175,13 @@ class entity
     Attempt to recast this object as a dustman object. Returns null if
     the entity is not a dustman object. 
 
+  .. _method-entity-as_ai_controller:
+
+  \ :ref:`ai_controller<class-ai_controller>`\ @ *as_ai_controller*\ ()
+
+    Attempt to recast this object as an AI controller object. Returns null if
+    the entity is not an AI controller object. 
+
   .. _method-entity-as_hitbox:
 
   \ :ref:`hitbox<class-hitbox>`\ @ *as_hitbox*\ ()
@@ -2962,6 +2969,12 @@ class controllable
     associated with a player returns -1. This is the reverse function of
     controller_entity(player). 
 
+  .. _method-controllable-ai_controller:
+
+  \ :ref:`ai_controller<class-ai_controller>`\ @ *ai_controller*\ ()
+
+    Returns the AI controlling this entity. 
+
   .. _method-controllable-filth_type:
 
   \ **int**\  *filth_type*\ ()
@@ -3328,6 +3341,12 @@ class dustman
     signature "void func_name(dustman@ dm, int arg).
     The 'arg' value passed to on_subframe_end_callback
     will match the 'arg' parameter passed to the callback. 
+
+.. _class-ai_controller:
+
+class ai_controller
+###################
+  Inherits: `entity <#class-entity>`_
 
 .. _class-hitbox:
 
