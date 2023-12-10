@@ -18,6 +18,18 @@ class script
     will have been recreated and therefore existing handles will no longer
     refer to objects in the scene and should be requeried. 
 
+  .. _method-script-checkpoint_save-2:
+
+  \ **void**\  *checkpoint_save*\ (\ **int**\  player_index)
+
+    Called when a player hits a checkpoint during multiplayer. 
+
+  .. _method-script-checkpoint_load-2:
+
+  \ **void**\  *checkpoint_load*\ (\ **int**\  player_index)
+
+    Called when a player is respawned during multiplayer. 
+
   .. _method-script-entity_on_add:
 
   \ **void**\  *entity_on_add*\ (\ :ref:`entity<class-entity>`\ @ e)

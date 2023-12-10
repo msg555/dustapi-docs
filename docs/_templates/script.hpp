@@ -12,6 +12,12 @@ class script {
    * refer to objects in the scene and should be requeried. */
   void checkpoint_load();
 
+  /* Called when a player hits a checkpoint during multiplayer. */
+  void checkpoint_save(int player_index);
+
+  /* Called when a player is respawned during multiplayer. */
+  void checkpoint_load(int player_index);
+
   /* Called when an entity is added to the scene. */
   void entity_on_add(entity@ e);
 
