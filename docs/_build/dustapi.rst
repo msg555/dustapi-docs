@@ -823,19 +823,6 @@ class scene
 
     Remove an entity from the scene. 
 
-  .. _method-scene-get_emitter_id:
-
-  \ **int**\  *get_emitter_id*\ (\ **string**\  name)
-
-    Returns the emitter id for the given name, or -1 if it does not exist. 
-
-  .. _method-scene-add_particle_burst:
-
-  \ **void**\  *add_particle_burst*\ (\ **uint**\  id, \ **float**\  x, \ **float**\  y, \ **float**\  w, \ **float**\  h, \ **uint**\  layer, \ **uint**\  sub_layer)
-
-    Create a particle burst. If the emitter is not a burst emitter this does
-    nothing. 
-
   .. _method-scene-layer_visible:
 
   \ **bool**\  *layer_visible*\ (\ **uint**\  layer)
@@ -1241,6 +1228,46 @@ class scene
     Clear any ghosts currently loaded. This is meant only to help hide replays
     during special events.
     
+
+  .. _method-scene-get_emitter_type_id:
+
+  \ **int**\  *get_emitter_type_id*\ (\ **string**\  name)
+
+    Returns the emitter type id for the given name,
+    or -1 if it does not exist. 
+
+  .. _method-scene-add_particle_burst:
+
+  \ **void**\  *add_particle_burst*\ (\ **uint**\  id, \ **float**\  x, \ **float**\  y, \ **float**\  w, \ **float**\  h, \ **uint**\  layer, \ **uint**\  sub_layer)
+
+    Create a particle burst. If the emitter type is not a burst emitter this
+    does nothing. 
+
+  .. _method-scene-get_emitter_type_count:
+
+  \ **uint**\  *get_emitter_type_count*\ ()
+
+    Returns the number of defined emitter types. 
+
+  .. _method-scene-get_particle_type_count:
+
+  \ **uint**\  *get_particle_type_count*\ ()
+
+    Returns the number of defined particle types. 
+
+  .. _method-scene-get_emitter_type:
+
+  \ :ref:`emitter_type<class-emitter_type>`\ @ *get_emitter_type*\ (\ **uint**\  index)
+
+    Returns the emitter type with the given index, or null if the index is out
+    of range. 
+
+  .. _method-scene-get_particle_type:
+
+  \ :ref:`particle_type<class-particle_type>`\ @ *get_particle_type*\ (\ **uint**\  index)
+
+    Returns the particle type with the given index, or null if the index is out
+    of range. 
 
 .. _class-rectangle:
 
@@ -4850,6 +4877,469 @@ class canvas
   .. _method-canvas-scale_hud-2:
 
   \ **void**\  *scale_hud*\ (\ **bool**\  scale_hud)
+
+.. _class-emitter_type:
+
+class emitter_type
+##################
+  Represents a global emitter type. 
+
+  .. _method-emitter_type-get_id:
+
+  \ **uint**\  *get_id*\ ()
+
+    Returns the id of this emitter type. 
+
+  .. _method-emitter_type-get_name:
+
+  \ **string**\  *get_name*\ ()
+
+    Returns the name of this emitter type. 
+
+  .. _method-emitter_type-get_burst:
+
+  \ **bool**\  *get_burst*\ ()
+
+    Access whether this emitter type is a "burst" emitter.
+    Burst emitters will automatically remove themselves from the scene after a
+    short period of time. 
+
+  .. _method-emitter_type-set_burst:
+
+  \ **void**\  *set_burst*\ (\ **bool**\  burst)
+
+  .. _method-emitter_type-get_particle_type_count:
+
+  \ **uint**\  *get_particle_type_count*\ ()
+
+    Returns the number of particle types added to this emitter type. 
+
+  .. _method-emitter_type-add_particle_type:
+
+  \ **int**\  *add_particle_type*\ (\ :ref:`particle_type<class-particle_type>`\ @ particle_type)
+
+    Adds the given particle type to this emitter type. Returns the index of
+    newly added particle type or -1 if the particle type was not valid. 
+
+  .. _method-emitter_type-add_particle_type-2:
+
+  \ **int**\  *add_particle_type*\ (\ **uint**\  index)
+
+    Adds the particle type with the given index to this emitter type. Returns
+    the index of newly added particle type or -1 if the particle type was not
+    valid. 
+
+  .. _method-emitter_type-remove_particle_type_at:
+
+  \ **void**\  *remove_particle_type_at*\ (\ **uint**\  index)
+
+    Removes the particle type from this emitter type at the given index. 
+
+  .. _method-emitter_type-get_particle_type_at:
+
+  \ :ref:`particle_type<class-particle_type>`\ @ *get_particle_type_at*\ (\ **uint**\  index)
+
+    Returns the particle type for this emitter type at the given index, or null
+    if the index is invalid. 
+
+  .. _method-emitter_type-get_density:
+
+  \ **void**\  *get_density*\ (\ **uint**\  index, \ **float**\  &out value, \ **float**\  &out range)
+
+    Returns the density value and range for the particle type at the given
+    index. 
+
+  .. _method-emitter_type-set_density:
+
+  \ **void**\  *set_density*\ (\ **uint**\  index, \ **float**\  value, \ **float**\  range)
+
+    Sets the density value and range for the particle type at the given
+    index. 
+
+  .. _method-emitter_type-get_speed:
+
+  \ **void**\  *get_speed*\ (\ **uint**\  index, \ **float**\  &out value, \ **float**\  &out range)
+
+    Returns the speed value and range for the particle type at the given
+    index. 
+
+  .. _method-emitter_type-set_speed:
+
+  \ **void**\  *set_speed*\ (\ **uint**\  index, \ **float**\  value, \ **float**\  range)
+
+    Sets the speed value and range for the particle type at the given
+    index. 
+
+  .. _method-emitter_type-get_direction:
+
+  \ **void**\  *get_direction*\ (\ **uint**\  index, \ **float**\  &out value, \ **float**\  &out range)
+
+    Returns the direction value and range for the particle type at the given
+    index. 
+
+  .. _method-emitter_type-set_direction:
+
+  \ **void**\  *set_direction*\ (\ **uint**\  index, \ **float**\  value, \ **float**\  range)
+
+    Sets the direction value and range for the particle type at the given
+    index. 
+
+.. _class-particle_type:
+
+class particle_type
+###################
+  Represents a global emitter particle type. 
+
+  .. _method-particle_type-get_sprite_count:
+
+  \ **uint**\  *get_sprite_count*\ ()
+
+    Returns the number of sprites added to this particle type. 
+
+  .. _method-particle_type-get_sprite_at:
+
+  \ **string**\  *get_sprite_at*\ (\ **uint**\  index)
+
+    Returns the sprite name at the given index, or an empty string if the given
+    index is invalid. 
+
+  .. _method-particle_type-add_sprite:
+
+  \ **void**\  *add_sprite*\ (\ **string**\  sprite)
+
+    Add a new sprite to this particle type. 
+
+  .. _method-particle_type-remove_sprite_at:
+
+  \ **void**\  *remove_sprite_at*\ (\ **uint**\  index)
+
+    Removes the sprite at the given index. 
+
+  .. _method-particle_type-clear_sprites:
+
+  \ **void**\  *clear_sprites*\ ()
+
+    Removes all sprites for this particle type. 
+
+  .. _method-particle_type-get_frame:
+
+  \ **float**\  *get_frame*\ ()
+
+  .. _method-particle_type-set_frame:
+
+  \ **void**\  *set_frame*\ (\ **float**\  frame)
+
+  .. _method-particle_type-get_frame_range:
+
+  \ **float**\  *get_frame_range*\ ()
+
+  .. _method-particle_type-set_frame_range:
+
+  \ **void**\  *set_frame_range*\ (\ **float**\  frame_range)
+
+  .. _method-particle_type-get_frame-2:
+
+  \ **void**\  *get_frame*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_frame-2:
+
+  \ **void**\  *set_frame*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_loop_animation:
+
+  \ **bool**\  *get_loop_animation*\ ()
+
+  .. _method-particle_type-set_loop_animation:
+
+  \ **void**\  *set_loop_animation*\ (\ **bool**\  loop_animation)
+
+  .. _method-particle_type-get_frame_speed:
+
+  \ **float**\  *get_frame_speed*\ ()
+
+  .. _method-particle_type-set_frame_speed:
+
+  \ **void**\  *set_frame_speed*\ (\ **float**\  frame_speed)
+
+  .. _method-particle_type-get_frame_speed_range:
+
+  \ **float**\  *get_frame_speed_range*\ ()
+
+  .. _method-particle_type-set_frame_speed_range:
+
+  \ **void**\  *set_frame_speed_range*\ (\ **float**\  frame_speed_range)
+
+  .. _method-particle_type-get_frame_speed-2:
+
+  \ **void**\  *get_frame_speed*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_frame_speed-2:
+
+  \ **void**\  *set_frame_speed*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_rotation_speed:
+
+  \ **float**\  *get_rotation_speed*\ ()
+
+  .. _method-particle_type-set_rotation_speed:
+
+  \ **void**\  *set_rotation_speed*\ (\ **float**\  rotation_speed)
+
+  .. _method-particle_type-get_rotation_speed_range:
+
+  \ **float**\  *get_rotation_speed_range*\ ()
+
+  .. _method-particle_type-set_rotation_speed_range:
+
+  \ **void**\  *set_rotation_speed_range*\ (\ **float**\  rotation_speed_range)
+
+  .. _method-particle_type-get_rotation_speed-2:
+
+  \ **void**\  *get_rotation_speed*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_rotation_speed-2:
+
+  \ **void**\  *set_rotation_speed*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_rotation:
+
+  \ **float**\  *get_rotation*\ ()
+
+  .. _method-particle_type-set_rotation:
+
+  \ **void**\  *set_rotation*\ (\ **float**\  rotation)
+
+  .. _method-particle_type-get_rotation_range:
+
+  \ **float**\  *get_rotation_range*\ ()
+
+  .. _method-particle_type-set_rotation_range:
+
+  \ **void**\  *set_rotation_range*\ (\ **float**\  rotation_range)
+
+  .. _method-particle_type-get_rotation-2:
+
+  \ **void**\  *get_rotation*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_rotation-2:
+
+  \ **void**\  *set_rotation*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_flip_x:
+
+  \ **bool**\  *get_flip_x*\ ()
+
+  .. _method-particle_type-set_flip_x:
+
+  \ **void**\  *set_flip_x*\ (\ **bool**\  flip_x)
+
+  .. _method-particle_type-get_flip_y:
+
+  \ **bool**\  *get_flip_y*\ ()
+
+  .. _method-particle_type-set_flip_y:
+
+  \ **void**\  *set_flip_y*\ (\ **bool**\  flip_y)
+
+  .. _method-particle_type-get_scale:
+
+  \ **float**\  *get_scale*\ ()
+
+  .. _method-particle_type-set_scale:
+
+  \ **void**\  *set_scale*\ (\ **float**\  scale)
+
+  .. _method-particle_type-get_scale_range:
+
+  \ **float**\  *get_scale_range*\ ()
+
+  .. _method-particle_type-set_scale_range:
+
+  \ **void**\  *set_scale_range*\ (\ **float**\  scale_range)
+
+  .. _method-particle_type-get_scale-2:
+
+  \ **void**\  *get_scale*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_scale-2:
+
+  \ **void**\  *set_scale*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_x_scale:
+
+  \ **float**\  *get_x_scale*\ ()
+
+  .. _method-particle_type-set_x_scale:
+
+  \ **void**\  *set_x_scale*\ (\ **float**\  x_scale)
+
+  .. _method-particle_type-get_x_scale_range:
+
+  \ **float**\  *get_x_scale_range*\ ()
+
+  .. _method-particle_type-set_x_scale_range:
+
+  \ **void**\  *set_x_scale_range*\ (\ **float**\  x_scale_range)
+
+  .. _method-particle_type-get_x_scale-2:
+
+  \ **void**\  *get_x_scale*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_x_scale-2:
+
+  \ **void**\  *set_x_scale*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_x_scale_end:
+
+  \ **float**\  *get_x_scale_end*\ ()
+
+  .. _method-particle_type-set_x_scale_end:
+
+  \ **void**\  *set_x_scale_end*\ (\ **float**\  x_scale_end)
+
+  .. _method-particle_type-get_x_scale_end_range:
+
+  \ **float**\  *get_x_scale_end_range*\ ()
+
+  .. _method-particle_type-set_x_scale_end_range:
+
+  \ **void**\  *set_x_scale_end_range*\ (\ **float**\  x_scale_end_range)
+
+  .. _method-particle_type-get_x_scale_end-2:
+
+  \ **void**\  *get_x_scale_end*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_x_scale_end-2:
+
+  \ **void**\  *set_x_scale_end*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_y_scale:
+
+  \ **float**\  *get_y_scale*\ ()
+
+  .. _method-particle_type-set_y_scale:
+
+  \ **void**\  *set_y_scale*\ (\ **float**\  y_scale)
+
+  .. _method-particle_type-get_y_scale_range:
+
+  \ **float**\  *get_y_scale_range*\ ()
+
+  .. _method-particle_type-set_y_scale_range:
+
+  \ **void**\  *set_y_scale_range*\ (\ **float**\  y_scale_range)
+
+  .. _method-particle_type-get_y_scale-2:
+
+  \ **void**\  *get_y_scale*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_y_scale-2:
+
+  \ **void**\  *set_y_scale*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_y_scale_end:
+
+  \ **float**\  *get_y_scale_end*\ ()
+
+  .. _method-particle_type-set_y_scale_end:
+
+  \ **void**\  *set_y_scale_end*\ (\ **float**\  y_scale_end)
+
+  .. _method-particle_type-get_y_scale_end_range:
+
+  \ **float**\  *get_y_scale_end_range*\ ()
+
+  .. _method-particle_type-set_y_scale_end_range:
+
+  \ **void**\  *set_y_scale_end_range*\ (\ **float**\  y_scale_end_range)
+
+  .. _method-particle_type-get_y_scale_end-2:
+
+  \ **void**\  *get_y_scale_end*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_y_scale_end-2:
+
+  \ **void**\  *set_y_scale_end*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_life:
+
+  \ **float**\  *get_life*\ ()
+
+  .. _method-particle_type-set_life:
+
+  \ **void**\  *set_life*\ (\ **float**\  life)
+
+  .. _method-particle_type-get_life_range:
+
+  \ **float**\  *get_life_range*\ ()
+
+  .. _method-particle_type-set_life_range:
+
+  \ **void**\  *set_life_range*\ (\ **float**\  life_range)
+
+  .. _method-particle_type-get_life-2:
+
+  \ **void**\  *get_life*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_life-2:
+
+  \ **void**\  *set_life*\ (\ **float**\  value, \ **float**\  range)
+
+  .. _method-particle_type-get_gravity:
+
+  \ **float**\  *get_gravity*\ ()
+
+  .. _method-particle_type-set_gravity:
+
+  \ **void**\  *set_gravity*\ (\ **float**\  gravity)
+
+  .. _method-particle_type-get_gravity_direction:
+
+  \ **float**\  *get_gravity_direction*\ ()
+
+  .. _method-particle_type-set_gravity_direction:
+
+  \ **void**\  *set_gravity_direction*\ (\ **float**\  gravity_direction)
+
+  .. _method-particle_type-get_x_friction:
+
+  \ **float**\  *get_x_friction*\ ()
+
+  .. _method-particle_type-set_x_friction:
+
+  \ **void**\  *set_x_friction*\ (\ **float**\  x_friction)
+
+  .. _method-particle_type-get_y_friction:
+
+  \ **float**\  *get_y_friction*\ ()
+
+  .. _method-particle_type-set_y_friction:
+
+  \ **void**\  *set_y_friction*\ (\ **float**\  y_friction)
+
+  .. _method-particle_type-get_wind_scale:
+
+  \ **float**\  *get_wind_scale*\ ()
+
+  .. _method-particle_type-set_wind_scale:
+
+  \ **void**\  *set_wind_scale*\ (\ **float**\  wind_scale)
+
+  .. _method-particle_type-get_wind_scale_range:
+
+  \ **float**\  *get_wind_scale_range*\ ()
+
+  .. _method-particle_type-set_wind_scale_range:
+
+  \ **void**\  *set_wind_scale_range*\ (\ **float**\  wind_scale_range)
+
+  .. _method-particle_type-get_wind_scale-2:
+
+  \ **void**\  *get_wind_scale*\ (\ **float**\  &out value, \ **float**\  &out range)
+
+  .. _method-particle_type-set_wind_scale-2:
+
+  \ **void**\  *set_wind_scale*\ (\ **float**\  value, \ **float**\  range)
 
 .. _class-timedate:
 
