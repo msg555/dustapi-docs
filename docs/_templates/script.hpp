@@ -18,10 +18,12 @@ class script {
   /* Called when a player is respawned during multiplayer. */
   void checkpoint_load(int player_index);
 
-  /* Called when an entity is added to the scene. */
+  /* Called when an entity is added to the scene. This is called when an entity
+   * is explictly added to the scene, or when it is loaded in. */
   void entity_on_add(entity@ e);
 
-  /* Called when an entity is removed from the scene. */
+  /* Called when an entity is removed from the scene. Unlike `entity_on_add`
+   * this is not called when an entity is unloaded. */
   void entity_on_remove(entity@ e);
 
   /* Called before the entity list to process has been constructed as an
@@ -68,11 +70,15 @@ class script {
   /* Called when one of this script's variables is modified in the editor */
   void editor_var_changed(var_info@ info);
 
-  /* Called when an entity is added to the scene in the editor. */
-  void editor_entity_added(entity@ e);
+  /* Called when an entity is placed in the editor. */
+  void editor_entity_on_create(entity@ e);
+
+  /* Called when an entity is added to the scene in the editor, either by being
+   * placed or loaded in. */
+  void editor_entity_on_add(entity@ e);
 
   /* Called when an entity is removed from the scene in the editor. */
-  void editor_entity_remove(entity@ e);
+  void editor_entity_on_remove(entity@ e);
 
   /* Spawn a player controllable. The following parameters will be set
    * in the passed message:

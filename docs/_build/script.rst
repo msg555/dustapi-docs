@@ -34,13 +34,15 @@ class script
 
   \ **void**\  *entity_on_add*\ (\ :ref:`entity<class-entity>`\ @ e)
 
-    Called when an entity is added to the scene. 
+    Called when an entity is added to the scene. This is called when an entity
+    is explictly added to the scene, or when it is loaded in. 
 
   .. _method-script-entity_on_remove:
 
   \ **void**\  *entity_on_remove*\ (\ :ref:`entity<class-entity>`\ @ e)
 
-    Called when an entity is removed from the scene. 
+    Called when an entity is removed from the scene. Unlike `entity_on_add`
+    this is not called when an entity is unloaded. 
 
   .. _method-script-move_cameras:
 
@@ -116,15 +118,22 @@ class script
 
     Called when one of this script's variables is modified in the editor 
 
-  .. _method-script-editor_entity_added:
+  .. _method-script-editor_entity_on_create:
 
-  \ **void**\  *editor_entity_added*\ (\ :ref:`entity<class-entity>`\ @ e)
+  \ **void**\  *editor_entity_on_create*\ (\ :ref:`entity<class-entity>`\ @ e)
 
-    Called when an entity is added to the scene in the editor. 
+    Called when an entity is placed in the editor. 
 
-  .. _method-script-editor_entity_remove:
+  .. _method-script-editor_entity_on_add:
 
-  \ **void**\  *editor_entity_remove*\ (\ :ref:`entity<class-entity>`\ @ e)
+  \ **void**\  *editor_entity_on_add*\ (\ :ref:`entity<class-entity>`\ @ e)
+
+    Called when an entity is added to the scene in the editor, either by being
+    placed or loaded in. 
+
+  .. _method-script-editor_entity_on_remove:
+
+  \ **void**\  *editor_entity_on_remove*\ (\ :ref:`entity<class-entity>`\ @ e)
 
     Called when an entity is removed from the scene in the editor. 
 
