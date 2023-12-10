@@ -1630,11 +1630,17 @@ class tilefilth
 
 class camera
 ############
+  .. _method-camera-get_type:
+
+  \ **int**\  *get_type*\ ()
+
+    Get the camera type. See the `camera_types` enum. 
+
   .. _method-camera-camera_type:
 
   \ **string**\  *camera_type*\ ()
 
-    Deprecated - use :ref:`camera::type<method-camera-type>` instead. 
+    Deprecated - use :ref:`camera::get_type<method-camera-get_type>` instead. 
 
   .. _method-camera-script_camera:
 
