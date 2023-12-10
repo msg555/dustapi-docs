@@ -2242,6 +2242,28 @@ class entity
 
   \ **void**\  *set_xy*\ (\ **float**\  x, \ **float**\  y)
 
+  .. _method-entity-centre:
+
+  \ **void**\  *centre*\ (\ **float**\  &out x, \ **float**\  &out y)
+
+    A shortcut method to calculate the centre of this entity's hitbox, which
+    for some entities may not be the same as its origin/position. 
+
+  .. _method-entity-centre_x:
+
+  \ **float**\  *centre_x*\ ()
+
+  .. _method-entity-centre_y:
+
+  \ **float**\  *centre_y*\ ()
+
+  .. _method-entity-set_centre:
+
+  \ **void**\  *set_centre*\ (\ **float**\  x, \ **float**\  y)
+
+    Sets this entity's position so that the centre of its hitbox will be
+    positioned at `x`, `y` 
+
   .. _method-entity-rotation:
 
   \ **float**\  *rotation*\ ()
