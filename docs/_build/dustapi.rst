@@ -1432,6 +1432,11 @@ class camera
 
   \ **string**\  *camera_type*\ ()
 
+    Get the camera type.
+     | `player` - Free camera.
+     | `test` - The camera is attached to a path.
+     | `script` - The camera is being controlled by script. 
+
   .. _method-camera-script_camera:
 
   \ **bool**\  *script_camera*\ ()
@@ -1629,10 +1634,22 @@ class camera
 
   .. _method-camera-try_connect:
 
-  \ **bool**\  *try_connect*\ (\ :ref:`entity<class-entity>`\ @ cam_node)
+  \ **bool**\  *try_connect*\ (\ :ref:`camera_node<class-camera_node>`\ @ cam_node)
 
     Attempts to connect to the given camera node.
     Returns true on success. 
+
+  .. _method-camera-current_node:
+
+  \ :ref:`entity<class-entity>`\ @ *current_node*\ ()
+
+    The current node on the camera path. 
+
+  .. _method-camera-next_node:
+
+  \ :ref:`entity<class-entity>`\ @ *next_node*\ ()
+
+    The next node on the camera path. 
 
   .. _method-camera-editor_zoom:
 
@@ -1725,6 +1742,167 @@ class camera
     Change the fog colour. fog_time controls how long the transition time
     from the current fog colour to this updated colour should take measured
     in seconds. 
+
+.. _class-camera_node:
+
+class camera_node
+#################
+  Inherits: `entity <#class-entity>`_
+
+  .. _method-camera_node-width:
+
+  \ **int**\  *width*\ ()
+
+    The size of this node's area. 
+
+  .. _method-camera_node-width-2:
+
+  \ **void**\  *width*\ (\ **int**\  width)
+
+  .. _method-camera_node-screen_height:
+
+  \ **int**\  *screen_height*\ ()
+
+    The screen height for this node. 
+
+  .. _method-camera_node-screen_height-2:
+
+  \ **void**\  *screen_height*\ (\ **int**\  height)
+
+  .. _method-camera_node-type:
+
+  \ **int**\  *type*\ ()
+
+    This camera node's type.
+    See :ref:`enum node_types` for a list of possible values. 
+
+  .. _method-camera_node-type-2:
+
+  \ **void**\  *type*\ (\ **int**\  type)
+
+  .. _method-camera_node-connected_node_id:
+
+  \ **uint**\  *connected_node_id*\ (\ **uint**\  index)
+
+    Gets the id of the camera node connected to this one at the given
+    edge index. 
+
+  .. _method-camera_node-connected_node_id-2:
+
+  \ **void**\  *connected_node_id*\ (\ **uint**\  index, \ **uint**\  node_id)
+
+  .. _method-camera_node-interest_width:
+
+  \ **int**\  *interest_width*\ (\ **uint**\  index)
+
+    Gets the interest width for the given edge index. 
+
+  .. _method-camera_node-interest_width-2:
+
+  \ **void**\  *interest_width*\ (\ **uint**\  index, \ **int**\  width)
+
+  .. _method-camera_node-get_edge:
+
+  \ **void**\  *get_edge*\ (\ **uint**\  index, \ **uint**\  &out node_id, \ **int**\  &out intereset_width)
+
+    Gets the connected node id and interest width for the given edge index. 
+
+  .. _method-camera_node-set_edge:
+
+  \ **void**\  *set_edge*\ (\ **uint**\  index, \ **uint**\  node_id, \ **int**\  intereset_width)
+
+  .. _method-camera_node-get_control:
+
+  \ **void**\  *get_control*\ (\ **uint**\  index, \ **float**\  &out length, \ **float**\  &out angle)
+
+    Gets length and angle (in degrees) of the control/tolerance handle. 
+
+  .. _method-camera_node-set_control:
+
+  \ **void**\  *set_control*\ (\ **uint**\  index, \ **float**\  length, \ **float**\  angle)
+
+  .. _method-camera_node-connect_node:
+
+  \ **bool**\  *connect_node*\ (\ **uint**\  node_id, \ **bool**\  update_control)
+
+    Adds a connection to node_id. This may reorder the list of connected nodes.
+    If update_control is false control handle angles will not be recalculated.
+    Returns true if a new connection was added. 
+
+  .. _method-camera_node-connect_node-2:
+
+  \ **bool**\  *connect_node*\ (\ **uint**\  node_id)
+
+  .. _method-camera_node-disconnect_node:
+
+  \ **bool**\  *disconnect_node*\ (\ **uint**\  node_id, \ **bool**\  update_control)
+
+    Removes node_id from the list of connected nodes.
+    This may reorder the list of connected nodes.
+    If update_control is false control handle angles will not be recalculated.
+    Returns true if a connection was removed. 
+
+  .. _method-camera_node-disconnect_node-2:
+
+  \ **bool**\  *disconnect_node*\ (\ **uint**\  node_id)
+
+  .. _method-camera_node-disconnect_from_node:
+
+  \ **bool**\  *disconnect_from_node*\ (\ **uint**\  node_id)
+
+    Removes this node from a neighbouring node's connection list.
+    Returns true if a connection was removed. 
+
+  .. _method-camera_node-disconnect_all:
+
+  \ **void**\  *disconnect_all*\ (\ **bool**\  update_control)
+
+    Removes all connections to and from this node.
+    If update_control is false control handle angles will not be recalculated
+    for neighbouring nodes. 
+
+  .. _method-camera_node-disconnect_all-2:
+
+  \ **void**\  *disconnect_all*\ ()
+
+  .. _method-camera_node-remove_edge:
+
+  \ **void**\  *remove_edge*\ (\ **int**\  index, \ **bool**\  update_control)
+
+    Removes the connected edge at index.
+    If update_control is set this will also recalculate control handle
+    angles. 
+
+  .. _method-camera_node-remove_edge-2:
+
+  \ **void**\  *remove_edge*\ (\ **int**\  index)
+
+  .. _method-camera_node-reorder_edges:
+
+  \ **void**\  *reorder_edges*\ (\ **bool**\  update_control)
+
+    Reorders the list of connected nodes based on their relative angle. 
+
+  .. _method-camera_node-update_control:
+
+  \ **void**\  *update_control*\ ()
+
+    Recalculate all control handle angles. 
+
+  .. _method-camera_node-num_edges:
+
+  \ **int**\  *num_edges*\ ()
+
+    The number of connections this node has. 
+
+  .. _method-camera_node-num_controls:
+
+  \ **int**\  *num_controls*\ ()
+
+    The number of control handles this node has.
+    This should be 0 when not connected to any nodes, 2 for a node with a
+    single connection, or match `num_edges` for a node with 2 or more
+    connections. 
 
 .. _class-collision:
 
@@ -1933,6 +2111,13 @@ class entity
   .. _method-entity-as_scriptenemy:
 
   \ :ref:`scriptenemy<class-scriptenemy>`\ @ *as_scriptenemy*\ ()
+
+    Attempt to recast this object as a scriptenemy object. Returns null if
+    the entity is not a scriptenemy object. 
+
+  .. _method-entity-as_camera_node:
+
+  \ :ref:`camera_node<class-camera_node>`\ @ *as_camera_node*\ ()
 
     Attempt to recast this object as a scriptenemy object. Returns null if
     the entity is not a scriptenemy object. 
