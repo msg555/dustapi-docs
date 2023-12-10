@@ -4995,6 +4995,12 @@ class editor_api
 
     Returns the selected entity. 
 
+  .. _method-editor_api-set_selected_entity:
+
+  \ **void**\  *set_selected_entity*\ (\ :ref:`entity<class-entity>`\ @ entity)
+
+    Set the selected entity. 
+
   .. _method-editor_api-help_screen_vis:
 
   \ **bool**\  *help_screen_vis*\ ()
