@@ -1625,8 +1625,7 @@ class camera
     
     Advanced mode provides standard buffering behaviour while also giving
     access to the down/pressed state of each input through the
-    :ref:`camera::input_*<method-camera-input_x>` methods.
-    
+    :ref:`camera::input_*<method-camera-input_x>` methods. 
 
   .. _method-camera-controller_mode-2:
 
