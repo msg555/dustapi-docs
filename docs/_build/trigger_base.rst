@@ -63,7 +63,7 @@ class trigger_base
   [position,mode:MODE,y:YPARAM]
     Use this annotation on an x-variable, naming the corresponding y
     **variable** as **YPARAM**.
-    Use `Shift`, `Control`, and `Alt` to snap coordinates to increments 48, 24, and 12
+    Use `Shift`, `Control`, and `Alt` to snap coordinates to increments of 48, 24, and 12
     respectively.
   
     * **mode** Can be ``world`` (default) or ``hud``.
@@ -78,6 +78,8 @@ class trigger_base
     * **snap:INCREMENT** If set forces a specific increment to snap the coordinates to.
     * **round:TYPE** Can be ``down``/``-1`` or ``up``/``1`` to round down or up when snapping.
     * **tiles** If present will return the tile index under the mouse.
+    * **relative** If present coordinates will be relative to the trigger/entity this property
+      belongs to.
   [entity,TYPE,TYPE,...]
     | Use to select an entity id with the mouse.
     | An optional list of allowed types can be given. If no **TYPE** type is
