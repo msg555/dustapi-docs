@@ -59,9 +59,15 @@
  *   uniformly distributed, or with a custom interval using **STEP**.
  * [position,mode:MODE,layer:LAYER,y:YPARAM]
  *   Use this annotation on an x-variable, naming the corresponding y
- *   **variable** as **YPARAM**. **MODE** can be "world" or "hud", defaulting
- *   to "world". **LAYER** is the layer to calculate the coordinates of from
- *   the user's mouse.
+ *   **variable** as **YPARAM**.
+ * 
+ *   * **MODE** Can be ``world`` (default) or ``hud``.
+ *   * **LAYER** The layer to calculate the coordinates of from the user's mouse.
+ * 
+ *     * A sublayer can optionally be specified with the format `LAYER.SUBLAYER`
+ *     * **LAYER** or **SUBLAYER** can point to a variable by prefixing with an equal sign, e.g.
+ *       ``=layer_var_name.10`` will read the layer value from a variable called ``layer_var``, and use
+ *       a value of 10 for the sublayer.
  * [entity,TYPE,TYPE,...]
  *   | Use to select an entity id with the mouse.
  *   | An optional list of allowed types can be given. If no **TYPE** type is
